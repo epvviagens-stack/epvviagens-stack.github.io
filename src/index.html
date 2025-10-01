@@ -3,13 +3,20 @@
 
 <head>
     <!-- Title -->
-    <title>Título do Documento</title>
+    <title>Inicio - É pra viajar</title>
 
-    <!-- Links -->
+    <!-- Default -->
     <link rel="icon" type="image/x-icon" href="static/favicon.ico">
-    <link rel="stylesheet" href="style.css">
-    <script defer src="./script.js"></script>
 
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="static/carousel/carousel.css">
+    <link rel="stylesheet" href="static/featuring/featuring.css">
+    <link rel="stylesheet" href="static/common/footer.css">
+
+    <!-- JS -->
+    <script defer src="./script.js"></script>
+    <script defer src="static/carousel/carousel.js"></script>
 
     <!-- Metadata -->
     <meta charset="UTF-8">
@@ -21,6 +28,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+
+
+    <!-- Libs -->
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
 
     <!-- Icons -->
     <!-- <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script> -->
@@ -44,23 +57,163 @@
         </div>
     </header>
 
+    <main>
+        <section class="hero">
+            <div class="container col-12 hero-content flex">
+                <div class="hero-image-background">
+                    <div class="hero-filter-overlay">
+                        <video class="hero-video" autoplay muted loop playsinline>
+                            <source src="./static/landing-page/hero/hero-1video.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
 
-
-
-    <footer>
-        <div class="container col-12 footer-content flex">
-            <div class="col-6 footer-left">
-                <p>&copy; 2024 É pra viajar. Todos os direitos reservados.</p>
+                <div class="hero-overlay centered column">
+                    <h1 class="hero-title col-12">É pra viajar</h1>
+                    <p class="hero-subtitle col-12">
+                        É pra <span id="changeLoop" class="hero-subtitle-highlight move-in">viver</span>
+                    </p>
+                    <div class="btn btn-primary hero-button col-6">Fazer uma cotação</div>
+                </div>
             </div>
-            <div class="col-6 footer-right flex">
-                <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+        </section>
+
+        <section class="related-posts">
+            <h2 class="section-title">Postagens relacionadas</h2>
+            <div class="posts-grid" id="render-posts">
+            </div>
+        </section>
+
+        <section class="carousel-section">
+            <div class="carousel-container">
+                <div class="carousel-image">
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723a9ce6ad3?q=80&w=2070&auto=format&fit=crop" alt="Praia paradisíaca" class="active">
+                    <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=2070&auto=format&fit=crop" alt="Lago em montanhas">
+                    <img src="https://images.unsplash.com/photo-1539635278303-d4002c07eae3?q=80&w=2070&auto=format&fit=crop" alt="Cidade histórica na Itália">
+                </div>
+                <div class="carousel-content">
+                    <div class="content-slide active">
+                        <h2>Missão</h2>
+                        <p>Realizar sonhos através de experiências de viagem únicas, oferecendo muito mais do que preços: <span class="semibold">emoção, liberdade, descobertas e transformações.</span> Ser parceira de cada cliente na escolha do destino, entendendo
+                            desejos e criando roteiros que tenham alma, propósito e memórias inesquecíveis.
+                        </p>
+                        <!-- <a href="#" class="btn btn-primary">Contato</a> -->
+                    </div>
+                    <div class="content-slide">
+                        <h2>Visão</h2>
+                        <p>
+                            Ser uma agência de viagens moderna e marcante, referência em criar conexões emocionais entre pessoas e destinos. Queremos ser lembrados não apenas por vender viagens, mas por <span class="semibold">transformar cada “sim” em uma jornada inesquecível.</span>
+                        </p>
+                        <!-- <a href="#" class="btn btn-primary"></a> -->
+                    </div>
+                    <div class="content-slide">
+                        <h2>Valores</h2>
+                        <ul class="text-list">
+                            <li class="text-list-item"><span class="semibold">Sonhos</span>: acreditar que cada viagem começa com um desejo que merece ser realizado.</li>
+                            <li class="text-list-item"><span class="semibold">Parceria</span>: caminhar lado a lado com nossos clientes, entendendo suas histórias e objetivos.</li>
+                            <li class="text-list-item"><span class="semibold">Emoção</span>: criar experiências que toquem o coração e fiquem guardadas para sempre.</li>
+                            <li class="text-list-item"><span class="semibold">Liberdade</span>: proporcionar escolhas que reflitam autenticidade e estilo de vida.</li>
+                            <li class="text-list-item"><span class="semibold">Inovação</span>: usar criatividade e modernidade para oferecer experiências únicas.</li>
+                            <li class="text-list-item"><span class="semibold">Confiança</span>: atuar com transparência, cuidado e responsabilidade em cada detalhe.</li>
+                        </ul>
+                        <!-- <a href="#" class="btn btn-primary">Ver Destinos</a> -->
+                    </div>
+
+                    <div class="carousel-nav">
+                        <button id="prevBtn">&larr;</button>
+                        <button id="nextBtn">&rarr;</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="featuring-section">
+            <h2 class="featuring-title">Por que escolher a É pra viajar?</h2>
+
+            <div class="featuring-grid">
+                <div class="feature-card">
+                    <img src="static/landing-page/icons/experience.jpg" alt="Ícone de experiência" class="feature-icon">
+                    <h3 class="feature-card-title">Passagens aéreas</h3>
+                    <p class="feature-card-text">
+                        Oferecemos uma ampla seleção de passagens aéreas para destinos nacionais e internacionais.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <img src="static/landing-page/icons/support.jpg" alt="Ícone de suporte" class="feature-icon">
+                    <h3 class="feature-card-title">Pacotes personalizados</h3>
+                    <p class="feature-card-text">
+                        Estamos com você em cada etapa, desde a escolha do destino até o retorno para casa, garantindo tranquilidade total.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <img src="static/landing-page/icons/best-deals.jpg" alt="Ícone de melhores ofertas" class="feature-icon">
+                    <h3 class="feature-card-title">Excursões e grupos especiais</h3>
+                    <p class="feature-card-text">
+                        Oferecemos excursões guiadas e pacotes para grupos, ideais para famílias, amigos ou viagens corporativas.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <img src="static/landing-page/icons/itinerary.jpg" alt="Ícone de roteiros" class="feature-icon">
+                    <h3 class="feature-card-title">Roteiros de experiência</h3>
+                    <p class="feature-card-text">
+                        Oferecemos roteiros personalizados que combinam cultura, aventura e relaxamento, para uma viagem inesquecível.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <img src="static/landing-page/icons/accommodation.jpg" alt="Ícone de hospedagem" class="feature-icon">
+                    <h3 class="feature-card-title">Hospedagem, seguro-viagem e transfers</h3>
+                    <p class="feature-card-text">
+                        Cuidamos de todos os detalhes, incluindo hospedagem, seguro-viagem e transfers, para que você possa aproveitar ao máximo sua viagem.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section descricao">
+                <p>
+                    Hoje, a É pra viajar é mais do que uma agência de viagens: é um convite para transformar cada viagem em uma história que vale a pena contar. Porque para nós, viajar é pra viver intensamente, sonhar alto e explorar o mundo sem limites.
+                </p>
+
+            </div>
+            <div class="footer-section localizacao">
+                <h4>Localização</h4>
+                <p>
+                    1723 Frederico Maurer,<br> Xaxim, Curitiba<br> 80100-000
+                </p>
+            </div>
+            <div class="footer-section contato">
+                <h4>Contato</h4>
+                <p>luciana@epraviajar.com</p>
+                <p>(41) 98877-6655</p>
+            </div>
+            <div class="footer-section menu">
+                <h4>Menu</h4>
+                <ul>
+                    <li><a href="#">Início</a></li>
+                    <li><a href="#">Sobre</a></li>
+                    <li><a href="#">Contato</a></li>
+                </ul>
             </div>
         </div>
+        <div class="footer-bottom">
+            <div class="social-icons">
+                <a href="#"><img src="linkedin-icon.svg" alt="LinkedIn"></a>
+                <a href="#"><img src="email-icon.svg" alt="Email"></a>
+                <a href="#"><img src="instagram-icon.svg" alt="Instagram"></a>
+                <a href="#"><img src="facebook-icon.svg" alt="Facebook"></a>
+            </div>
+            <p>© 2025 por ÉpraViajar, todos os direitos reservados.</p>
+        </div>
     </footer>
-
 </body>
 
 </html>
