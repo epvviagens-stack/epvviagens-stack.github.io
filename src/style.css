@@ -77,6 +77,12 @@ main section {
     overflow: hidden;
 }
 
+.card-footer {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
 .post-date {
     font-size: 0.8rem;
     color: var(--sub-font-color-dark);
