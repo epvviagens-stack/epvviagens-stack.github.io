@@ -1,0 +1,82 @@
+@import "../common/root.css";
+.featuring-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--primary-bg-color);
+    width: 100%;
+}
+
+.featuring-title {
+    font-size: 2rem;
+    font-weight: var(--bold);
+    color: var(--font-color-dark);
+    margin-bottom: 4rem;
+    text-align: start;
+    width: 75%;
+}
+
+.featuring-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(250px, 1fr));
+    gap: 2rem;
+    width: 75%;
+    max-width: 100vw;
+    margin-bottom: 2rem;
+}
+
+.feature-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: var(--secondary-bg-color);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow-color);
+    transition: box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+    box-shadow: var(--box-shadow-hover);
+}
+
+.feature-icon {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+    margin-bottom: 1rem;
+}
+
+.feature-card i {
+    font-size: 4rem;
+    margin: 1rem auto;
+}
+
+.feature-card-title {
+    font-size: 1.1rem;
+    font-weight: var(--semi-bold);
+    color: var(--font-color-dark);
+    margin-bottom: 0.5rem;
+}
+
+.feature-card-text {
+    font-size: 1rem;
+    color: var(--sub-font-color-dark);
+    line-height: 1.5;
+}
+
+@media (max-width: 992px) {
+    .featuring-grid {
+        grid-template-columns: repeat(2, minmax(250px, 1fr));
+        width: 90%;
+    }
+    .featuring-title {
+        width: 90%;
+    }
+}
+
+@media (max-width: 768px) {
+    .featuring-grid {
+        grid-template-columns: 1fr;
+    }
+}
