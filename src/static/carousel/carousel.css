@@ -1,0 +1,162 @@
+@import url('../common/root.css');
+.carousel-section {
+    padding: 60px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel-container {
+    display: flex;
+    width: 75%;
+    max-width: 90%;
+    box-shadow: var(--box-shadow-color);
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #fff;
+    height: 500px;
+}
+
+.carousel-image {
+    flex: 1;
+    position: relative;
+}
+
+.carousel-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: moveIn 0.8s ease-in-out;
+    opacity: 0;
+}
+
+
+/* .carousel-image img.active {
+    opacity: 1;
+    position: relative;
+} */
+
+.carousel-image img.next {
+    animation: moveNext 0.8s ease-in-out forwards;
+}
+
+.carousel-image img.prev {
+    animation: movePrev 0.8s ease-in-out forwards;
+}
+
+.carousel-content {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    position: relative;
+}
+
+.content-slide {
+    position: absolute;
+    opacity: 0;
+    transition: all 0.8s ease-in-out;
+    pointer-events: none;
+}
+
+.content-slide.next {
+    position: relative;
+    opacity: 1;
+    pointer-events: auto;
+    animation: moveNext 0.8s ease-in-out forwards;
+}
+
+.content-slide.prev {
+    position: relative;
+    opacity: 1;
+    pointer-events: auto;
+    animation: movePrev 0.8s ease-in-out forwards;
+}
+
+.carousel-content h2 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.carousel-content p {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.carousel-nav {
+    position: absolute;
+    bottom: 40px;
+    right: 40px;
+    display: flex;
+    gap: 15px;
+}
+
+.carousel-nav button {
+    background-color: transparent;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: var(--sub-font-color-dark);
+    transition: all 0.3s ease;
+}
+
+.carousel-nav button:hover {
+    background-color: var(--secondary-bg-color);
+    color: var(--font-color-dark);
+}
+
+@media (max-width: 768px) {
+    .carousel-container {
+        flex-direction: column;
+        max-width: 95%;
+        height: auto;
+    }
+    .carousel-image {
+        min-height: 300px;
+    }
+    .carousel-nav {
+        top: 50%;
+        right: 50%;
+        transform: translate(50%, -50%);
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+    .carousel-content {
+        padding: 20px 4rem;
+    }
+}
+
+@keyframes moveNext {
+    from {
+        transform: translateX(250%);
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes movePrev {
+    from {
+        opacity: 0;
+        transform: translateX(-250%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
