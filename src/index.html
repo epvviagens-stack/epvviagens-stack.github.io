@@ -10,9 +10,10 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="static/hero/hero.css">
+    <link rel="stylesheet" href="static/common/footer.css">
     <link rel="stylesheet" href="static/carousel/carousel.css">
     <link rel="stylesheet" href="static/featuring/featuring.css">
-    <link rel="stylesheet" href="static/common/footer.css">
 
     <!-- JS -->
     <script defer src="./script.js"></script>
@@ -85,44 +86,59 @@
         </section>
 
         <section class="carousel-section">
-            <div class="carousel-container">
-                <div class="carousel-image">
-                    <img src="./static/landing-page/carousel/carousel-1.jpg" alt="Praia paradisíaca" class="active">
-                    <img src="./static/landing-page/carousel/carousel-2.jpg" alt="Montanha na Europa">
-                    <img src="./static/landing-page/carousel/carousel-3.jpg" alt="Cidade histórica na Itália">
-                </div>
-                <div class="carousel-content">
-                    <div class="content-slide active">
-                        <h2>Missão</h2>
-                        <p>Realizar sonhos através de experiências de viagem únicas, oferecendo muito mais do que preços: <span class="semibold">emoção, liberdade, descobertas e transformações.</span> Ser parceira de cada cliente na escolha do destino, entendendo
-                            desejos e criando roteiros que tenham alma, propósito e memórias inesquecíveis.
-                        </p>
-                        <!-- <a href="#" class="btn btn-primary">Contato</a> -->
-                    </div>
-                    <div class="content-slide">
-                        <h2>Visão</h2>
-                        <p>
-                            Ser uma agência de viagens moderna e marcante, referência em criar conexões emocionais entre pessoas e destinos. Queremos ser lembrados não apenas por vender viagens, mas por <span class="semibold">transformar cada “sim” em uma jornada inesquecível.</span>
-                        </p>
-                        <!-- <a href="#" class="btn btn-primary"></a> -->
-                    </div>
-                    <div class="content-slide">
-                        <h2>Valores</h2>
-                        <ul class="text-list">
-                            <li class="text-list-item"><span class="semibold">Sonhos</span>: acreditar que cada viagem começa com um desejo que merece ser realizado.</li>
-                            <li class="text-list-item"><span class="semibold">Parceria</span>: caminhar lado a lado com nossos clientes, entendendo suas histórias e objetivos.</li>
-                            <li class="text-list-item"><span class="semibold">Emoção</span>: criar experiências que toquem o coração e fiquem guardadas para sempre.</li>
-                            <li class="text-list-item"><span class="semibold">Liberdade</span>: proporcionar escolhas que reflitam autenticidade e estilo de vida.</li>
-                            <li class="text-list-item"><span class="semibold">Inovação</span>: usar criatividade e modernidade para oferecer experiências únicas.</li>
-                            <li class="text-list-item"><span class="semibold">Confiança</span>: atuar com transparência, cuidado e responsabilidade em cada detalhe.</li>
-                        </ul>
-                        <!-- <a href="#" class="btn btn-primary">Ver Destinos</a> -->
-                    </div>
+            <div class="carousel-wrapper">
+                <div class="carousel-track">
+                    <div class="carousel-slide">
+                        <img src="./static/landing-page/carousel/carousel-1.jpg" alt="Praia paradisíaca" />
+                        <div class="carousel-caption">
+                            <h2>Missão</h2>
+                            <p>
+                                Realizar sonhos através de experiências de viagem únicas, oferecendo muito mais do que preços: <span class="semibold">emoção, liberdade, descobertas e transformações</span>. Ser parceira de cada cliente na escolha do destino,
+                                entendendo desejos e criando roteiros que tenham alma, propósito e memórias inesquecíveis.
 
-                    <div class="carousel-nav">
-                        <button id="prevBtn">&larr;</button>
-                        <button id="nextBtn">&rarr;</button>
+                            </p>
+                        </div>
                     </div>
+                    <div class="carousel-slide">
+                        <img src="./static/landing-page/carousel/carousel-2.jpg" alt="Montanha na Europa" />
+                        <div class="carousel-caption">
+                            <h2>Visão</h2>
+                            <p>
+                                Ser uma agência de viagens moderna e marcante, referência em criar conexões emocionais entre pessoas e destinos. Queremos ser lembrados não apenas por vender viagens, mas por <span class="semibold">cada “sim” em uma jornada inesquecível.</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="./static/landing-page/carousel/carousel-3.jpg" alt="Cidade histórica na Itália" />
+                        <div class="carousel-caption">
+                            <h2>Valores</h2>
+                            <ul class="text-list">
+                                <li>
+                                    <span class="semibold">Sonhos</span>: acreditar que cada viagem começa com um desejo que merece ser realizado.
+                                </li>
+                                <li>
+                                    <span class="semibold">Parceria</span>: caminhar lado a lado com nossos clientes, entendendo suas histórias e objetivos.
+                                </li>
+                                <li>
+                                    <span class="semibold">Emoção</span>: riar experiências que toquem o coração e fiquem guardadas para sempre.
+                                </li>
+                                <li>
+                                    <span class="semibold">Liberdade</span>: proporcionar escolhas que reflitam autenticidade e estilo de vida.
+                                </li>
+                                <li>
+                                    <span class="semibold">Inovação</span>: usar criatividade e modernidade para oferecer experiências únicas.
+                                </li>
+                                <li>
+                                    <span class="semibold">Confiança</span>: atuar com transparência, cuidado e responsabilidade em cada detalhe.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-nav">
+                    <button id="prevBtn">&larr;</button>
+                    <button id="nextBtn">&rarr;</button>
                 </div>
             </div>
         </section>
@@ -130,10 +146,9 @@
 
         <section class="featuring-section">
             <h2 class="featuring-title">Por que escolher a É pra viajar?</h2>
-
             <div class="featuring-grid">
                 <div class="feature-card">
-                    <img src="static/landing-page/icons/experience.jpg" alt="Ícone de experiência" class="feature-icon">
+                    <i class="fa-solid fa-rocket"></i>
                     <h3 class="feature-card-title">Passagens aéreas</h3>
                     <p class="feature-card-text">
                         Oferecemos uma ampla seleção de passagens aéreas para destinos nacionais e internacionais.
@@ -141,7 +156,7 @@
                 </div>
 
                 <div class="feature-card">
-                    <img src="static/landing-page/icons/support.jpg" alt="Ícone de suporte" class="feature-icon">
+                    <i class="fa-solid fa-pen-ruler"></i>
                     <h3 class="feature-card-title">Pacotes personalizados</h3>
                     <p class="feature-card-text">
                         Estamos com você em cada etapa, desde a escolha do destino até o retorno para casa, garantindo tranquilidade total.
@@ -149,7 +164,7 @@
                 </div>
 
                 <div class="feature-card">
-                    <img src="static/landing-page/icons/best-deals.jpg" alt="Ícone de melhores ofertas" class="feature-icon">
+                    <i class="fa-solid fa-users-rays"></i>
                     <h3 class="feature-card-title">Excursões e grupos especiais</h3>
                     <p class="feature-card-text">
                         Oferecemos excursões guiadas e pacotes para grupos, ideais para famílias, amigos ou viagens corporativas.
@@ -157,7 +172,7 @@
                 </div>
 
                 <div class="feature-card">
-                    <img src="static/landing-page/icons/itinerary.jpg" alt="Ícone de roteiros" class="feature-icon">
+                    <i class="fa-solid fa-map-location"></i>
                     <h3 class="feature-card-title">Roteiros de experiência</h3>
                     <p class="feature-card-text">
                         Oferecemos roteiros personalizados que combinam cultura, aventura e relaxamento, para uma viagem inesquecível.
@@ -165,7 +180,7 @@
                 </div>
 
                 <div class="feature-card">
-                    <img src="static/landing-page/icons/accommodation.jpg" alt="Ícone de hospedagem" class="feature-icon">
+                    <i class="fa-solid fa-bed"></i>
                     <h3 class="feature-card-title">Hospedagem, seguro-viagem e transfers</h3>
                     <p class="feature-card-text">
                         Cuidamos de todos os detalhes, incluindo hospedagem, seguro-viagem e transfers, para que você possa aproveitar ao máximo sua viagem.
@@ -193,7 +208,7 @@
             <div class="footer-section contato">
                 <h4>Contato</h4>
                 <p>luciana@epraviajar.com</p>
-                <p>(41) 98877-6655</p>
+                <p>(41) 99611-6044</p>
             </div>
             <div class="footer-section menu">
                 <h4>Menu</h4>
@@ -206,10 +221,10 @@
         </div>
         <div class="footer-bottom">
             <div class="social-icons">
-                <a href="#"><img src="linkedin-icon.svg" alt="LinkedIn"></a>
-                <a href="#"><img src="email-icon.svg" alt="Email"></a>
-                <a href="#"><img src="instagram-icon.svg" alt="Instagram"></a>
-                <a href="#"><img src="facebook-icon.svg" alt="Facebook"></a>
+                <a href="https://wa.me/+5541996116044?text=Olá%20vi%20seu%20site%20e%20tenho%20interesse%20em%20comprar%20pacotes%20aéreos%20com%20voce"><i class="fa-brands fa-whatsapp footer-social-icon"></i></a>
+                <a href="#"><i class="fa-regular fa-envelope footer-social-icon"></i></a>
+                <a href="https://www.instagram.com/epraviajar" target="_blank"><i class="fa-brands fa-instagram footer-social-icon"></i></a>
+                <a href="#"><i class="fa-brands fa-facebook footer-social-icon"></i></a>
             </div>
             <p>© 2025 por ÉpraViajar, todos os direitos reservados.</p>
         </div>
