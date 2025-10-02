@@ -11,12 +11,15 @@
     <!-- CSS -->
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="static/hero/hero.css">
+    <link rel="stylesheet" href="static/modal/modal.css">
     <link rel="stylesheet" href="static/common/footer.css">
+    <link rel="stylesheet" href="static/snackbar/snackbar.css">
     <link rel="stylesheet" href="static/carousel/carousel.css">
     <link rel="stylesheet" href="static/featuring/featuring.css">
 
     <!-- JS -->
     <script defer src="./script.js"></script>
+    <script defer src="static/modal/modal.js"></script>
     <script defer src="static/carousel/carousel.js"></script>
 
     <!-- Metadata -->
@@ -35,6 +38,7 @@
 
     <!-- Libs -->
     <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
 
     <!-- Icons -->
     <!-- <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script> -->
@@ -43,17 +47,17 @@
 
 <body>
     <header>
-        <div class="container col-12 header flex">
+        <div class="container col-12 header">
             <div class="col-6 flex logo-container">
                 <a href="#" class="logo flex header-logo">
                     <img class="logo-svg" src="static/logo.svg" alt="EP">
                     <span class="logo-text">É pra viajar</span>
                 </a>
             </div>
-            <nav class="col-6 flex header-nav">
+            <nav class="col-6 header-nav">
                 <a href="./index.html" class="nav-link">Inicio</a>
                 <div class="divider-vertical"></div>
-                <div class="btn btn-secondary">Fale conosco</div>
+                <div class="btn btn-secondary open-modal" id="open-modal">Fale conosco</div>
             </nav>
         </div>
     </header>
@@ -74,10 +78,25 @@
                     <p class="hero-subtitle col-12">
                         É pra <span id="changeLoop" class="hero-subtitle-highlight move-in">viver</span>
                     </p>
-                    <div class="btn btn-primary hero-button col-6">Fazer uma cotação</div>
+                    <div class="btn btn-primary hero-button col-6 open-modal">Fazer uma cotação</div>
                 </div>
             </div>
         </section>
+
+        <section class="about-section">
+            <h2 class="section-title">Sobre nós</h2>
+            <div class="flex">
+                <p>
+                    Na <span class="semibold">É Pra Viajar!</span> acreditamos que viajar é muito mais do que comprar passagens ou reservar hotéis. É sobre <span class="semibold">realizar sonhos</span>, viver experiências inesquecíveis e criar memórias
+                    que transformam <span class="semibold">vidas</span>.
+                </p>
+                <p>
+                    Nosso propósito é <span class="semibold">atender cada cliente como único</span>, criando roteiros personalizados que unem modernidade, cuidado e emoção. Mais do que vender viagens, caminhamos lado a lado com você para transformar cada
+                    destino em uma jornada cheia de significado.
+                </p>
+            </div>
+        </section>
+
 
         <section class="related-posts">
             <h2 class="section-title">Postagens relacionadas</h2>
@@ -112,26 +131,12 @@
                         <img src="./static/landing-page/carousel/carousel-3.jpg" alt="Cidade histórica na Itália" />
                         <div class="carousel-caption">
                             <h2>Valores</h2>
-                            <ul class="text-list">
-                                <li>
-                                    <span class="semibold">Sonhos</span>: acreditar que cada viagem começa com um desejo que merece ser realizado.
-                                </li>
-                                <li>
-                                    <span class="semibold">Parceria</span>: caminhar lado a lado com nossos clientes, entendendo suas histórias e objetivos.
-                                </li>
-                                <li>
-                                    <span class="semibold">Emoção</span>: riar experiências que toquem o coração e fiquem guardadas para sempre.
-                                </li>
-                                <li>
-                                    <span class="semibold">Liberdade</span>: proporcionar escolhas que reflitam autenticidade e estilo de vida.
-                                </li>
-                                <li>
-                                    <span class="semibold">Inovação</span>: usar criatividade e modernidade para oferecer experiências únicas.
-                                </li>
-                                <li>
-                                    <span class="semibold">Confiança</span>: atuar com transparência, cuidado e responsabilidade em cada detalhe.
-                                </li>
-                            </ul>
+                            <div class="carousel-description">
+                                <span class="semibold">Sonhos</span>: acreditar que cada viagem começa com um desejo que merece ser realizado. <span class="semibold">Parceria</span>: caminhar lado a lado com nossos clientes, entendendo suas histórias
+                                e objetivos.
+                                <span class="semibold">Emoção</span>: criar experiências que toquem o coração e fiquem guardadas para sempre. <span class="semibold">Liberdade</span>: proporcionar escolhas que reflitam autenticidade e estilo de vida.
+                                <span class="semibold">Inovação</span>: usar criatividade e modernidade para oferecer experiências únicas. <span class="semibold">Confiança</span>: atuar com transparência, cuidado e responsabilidade em cada detalhe.
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -208,7 +213,7 @@
             <div class="footer-section contato">
                 <h4>Contato</h4>
                 <p>luciana@epraviajar.com</p>
-                <p>(41) 99611-6044</p>
+                <p>(41) 98787-0348</p>
             </div>
             <div class="footer-section menu">
                 <h4>Menu</h4>
@@ -221,14 +226,50 @@
         </div>
         <div class="footer-bottom">
             <div class="social-icons">
-                <a href="https://wa.me/+5541996116044?text=Olá%20vi%20seu%20site%20e%20tenho%20interesse%20em%20comprar%20pacotes%20aéreos%20com%20voce"><i class="fa-brands fa-whatsapp footer-social-icon"></i></a>
-                <a href="#"><i class="fa-regular fa-envelope footer-social-icon"></i></a>
+                <a href="https://wa.me/+5541987870348?text=Olá%20vi%20seu%20site%20e%20tenho%20interesse%20em%20comprar%20pacotes%20aéreos%20com%20voce"><i class="fa-brands fa-whatsapp footer-social-icon"></i></a>
+                <a href="mailto:contato@epraviajar.com.br?subject=Olá tenho interesse em comprar viajens&body=Mensagem enviada do site!"><i class="fa-regular fa-envelope footer-social-icon"></i></a>
                 <a href="https://www.instagram.com/epraviajar" target="_blank"><i class="fa-brands fa-instagram footer-social-icon"></i></a>
                 <a href="#"><i class="fa-brands fa-facebook footer-social-icon"></i></a>
             </div>
             <p>© 2025 por ÉpraViajar, todos os direitos reservados.</p>
         </div>
     </footer>
+
+
+    <div class="modal-overlay" id="modal-overlay">
+        <div class="modal">
+            <button class="close-btn" id="close-modal">&times;</button>
+            <h2>Entre em contato</h2>
+            <form id="contact-form">
+                <div>
+                    <label for="name">Nome *</label>
+                    <input type="text" id="name" name="name" placeholder="Seu name">
+                    <div class="error-message" id="name-error"></div>
+                </div>
+
+                <div>
+                    <label for="contact">Celular *</label>
+                    <input type="tel" id="contact" name="contact" placeholder="DDD + Número">
+                    <div class="error-message" id="contact-error"></div>
+                </div>
+
+                <div>
+                    <label for="target">Destino da viagem *</label>
+                    <input type="text" id="target" name="target" placeholder="Ex: Macapá">
+                    <div class="error-message" id="target-error"></div>
+                </div>
+
+                <div>
+                    <label for="date">Data da viagem *</label>
+                    <input type="date" id="date" name="date">
+                    <div class="error-message" id="date-error"></div>
+                </div>
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+    <div id="snackbar">Mensagem de teste</div>
 </body>
 
 </html>

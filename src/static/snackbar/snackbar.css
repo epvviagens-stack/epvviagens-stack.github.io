@@ -1,0 +1,37 @@
+@import url('../common/root.css');
+#snackbar {
+    visibility: hidden;
+    border: var(--border-radius);
+    min-width: 250px;
+    margin-left: -125px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
+    z-index: 100;
+    left: 50%;
+    bottom: 30px;
+    font-size: 17px;
+    transition: visibility 0s, opacity 0.5s linear;
+    opacity: 0;
+}
+
+#snackbar.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+#snackbar.success {
+    background-color: #04AA6D;
+}
+
+#snackbar.error {
+    background-color: #f44336;
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}

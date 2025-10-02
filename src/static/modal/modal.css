@@ -1,0 +1,115 @@
+/* #open-modal {
+    padding: 12px 24px;
+    border: none;
+    background: #ff9800;
+    color: white;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+} */
+
+
+/* Overlay */
+
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Modal */
+
+.modal {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    width: 380px;
+    position: relative;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal h2 {
+    margin-top: 0;
+    font-size: 20px;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 20px;
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    outline: none;
+    box-sizing: border-box;
+}
+
+input:focus {
+    border-color: #ff9800;
+}
+
+.error {
+    border-color: red;
+}
+
+.error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: -8px;
+}
+
+button[type="submit"] {
+    margin-top: 10px;
+    padding: 12px;
+    border: none;
+    background: #ff9800;
+    color: white;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background: #e68900;
+}
