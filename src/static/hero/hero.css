@@ -1,0 +1,82 @@
+@import url("../common/root.css");
+.hero {
+    height: calc(100vh - 80px);
+}
+
+.hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: contain;
+    z-index: -1;
+    opacity: 1;
+    background-position: center;
+    zoom: 1.2;
+    filter: brightness(0.5);
+}
+
+.hero-filter-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .4);
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--font-color-light);
+}
+
+.hero-title {
+    font-size: 4.5rem;
+    font-weight: bold;
+}
+
+.hero-subtitle {
+    font-size: 3.0rem;
+    width: 100%;
+    max-width: 20rem;
+    text-align: start;
+}
+
+.hero-subtitle-highlight {
+    color: var(--highlight-color);
+    font-weight: var(--semi-bold);
+}
+
+.hero-image-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../landing-page/hero/hero-video-fallback.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+@media (max-width: 992px) {
+    .hero-title {
+        font-size: 3.5rem;
+    }
+    .hero-subtitle {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-subtitle {
+        font-size: 2rem;
+    }
+}

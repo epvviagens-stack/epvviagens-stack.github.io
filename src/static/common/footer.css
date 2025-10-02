@@ -2,13 +2,14 @@
 .footer {
     background-color: var(--footer-bg-color);
     padding: 40px 20px 20px;
-    font-size: 14pxe;
+    font-size: 14px;
     color: var(--font-color-dark);
 }
 
 .footer-container {
     display: flex;
     flex-wrap: wrap;
+    /* height: 200px; */
     justify-content: space-between;
     max-width: 1200px;
     margin: 0 auto;
@@ -64,4 +65,8 @@
     display: flex;
     justify-content: space-between;
     color: var(--sub-font-color-dark);
+}
+
+.footer-social-icon {
+    font-size: 2rem;
 }

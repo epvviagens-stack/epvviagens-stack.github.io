@@ -78,6 +78,19 @@ a:hover {
 }
 
 
+/* SECTIONS */
+
+.section-title {
+    font-size: 2rem;
+    font-weight: var(--semi-bold);
+    color: var(--font-color-dark);
+    text-align: center;
+    display: inline-block;
+    position: relative;
+    margin-bottom: 3rem;
+}
+
+
 /* DIVIDERS */
 
 .divider {
@@ -153,7 +166,7 @@ a:hover {
 
 /* VARIABLES */
 
-:root {
+ :root {
     --primary-bg-color: #F9F9F9;
     --secondary-bg-color: #FFFFFF;
     --footer-bg-color: #F4F4F4;
@@ -171,4 +184,12 @@ a:hover {
     --border-radius: 13px;
     --box-shadow-color: 0 4px 6px rgba(0, 0, 0, 0.2);
     --box-shadow-hover: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 992px) {
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
 }

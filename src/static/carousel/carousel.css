@@ -13,8 +13,8 @@
     box-shadow: var(--box-shadow-color);
     border-radius: 10px;
     overflow: hidden;
-    background-color: #fff;
-    height: 500px;
+    background-color: var(--secondary-bg-color);
+    /* height: 500px; */
 }
 
 .carousel-image {

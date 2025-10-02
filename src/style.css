@@ -6,50 +6,6 @@ main section {
     margin-bottom: 4rem;
 }
 
-.hero {
-    height: calc(100vh - 80px);
-}
-
-.hero-video {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    min-width: 100%;
-    min-height: 100%;
-    object-fit: contain;
-    z-index: -1;
-    opacity: 1;
-    background-position: center;
-    zoom: 1.2;
-    filter: brightness(0.5);
-}
-
-.hero-filter-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, .4);
-    background-size: cover;
-    background-position: center;
-    z-index: 0;
-}
-
-.hero-overlay {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: var(--font-color-light);
-}
-
-.hero-title {
-    font-size: 4.5rem;
-    font-weight: bold;
-}
-
 
 /* SECTION POSTS */
 
@@ -57,16 +13,6 @@ main section {
     width: 75%;
     max-width: 75%;
     margin: 0 auto;
-}
-
-.section-title {
-    font-size: 2rem;
-    font-weight: var(--semi-bold);
-    color: var(--font-color-dark);
-    text-align: center;
-    display: inline-block;
-    position: relative;
-    margin-bottom: 3rem;
 }
 
 .posts-grid {
@@ -77,16 +23,24 @@ main section {
 }
 
 .post-card {
-    background-color: #ffffff;
+    background-color: var(--secondary-bg-color);
     box-shadow: var(--box-shadow-color);
     border-radius: 1px;
     overflow: hidden;
     transition: all .3s ease;
     cursor: pointer;
-    height: 500px;
+    /* height: 500px; */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
+
+.post-card img {
+    width: 100%;
+    /* height: 310px; */
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    display: block;
 }
 
 .post-card:hover {
@@ -123,40 +77,9 @@ main section {
     overflow: hidden;
 }
 
-.card-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
 .post-date {
     font-size: 0.8rem;
     color: var(--sub-font-color-dark);
-}
-
-
-/* TODO CHECK WIDTH */
-
-.hero-subtitle {
-    font-size: 3.0rem;
-    width: 20rem;
-    text-align: start;
-}
-
-.hero-subtitle-highlight {
-    color: var(--highlight-color);
-    font-weight: var(--semi-bold);
-}
-
-.hero-image-background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('./static/landing-page/hero/hero-video-fallback.jpg');
-    background-size: cover;
-    background-position: center;
 }
 
 .move-in {
@@ -175,17 +98,8 @@ main section {
 }
 
 @media (max-width: 992px) {
-    * {
-        padding: 0;
-        margin: 0;
-        box-sizing: border-box;
-    }
-    .hero-title {
-        font-size: 3.5rem;
-    }
     .posts-grid {
         grid-template-columns: repeat(2, 1fr);
-        /* 2 colunas */
     }
 }
 
