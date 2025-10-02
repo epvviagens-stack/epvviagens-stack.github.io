@@ -70,7 +70,7 @@ function createCard(row) {
     const a = document.createElement('a');
     a.href = new URLSearchParams({ title: row.Titulo }).toString().replace(/%20/g, '+');
     a.className = 'btn btn-primary';
-    a.textContent = 'Leia mais';
+    a.textContent = row.Botao;
     a.setAttribute('aria-label', `Leia mais sobre ${row.Titulo}`);
 
     const span = document.createElement('span');

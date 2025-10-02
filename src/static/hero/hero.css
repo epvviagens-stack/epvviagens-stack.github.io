@@ -76,7 +76,13 @@
 }
 
 @media (max-width: 768px) {
+    .hero-overlay {
+        width: 100%;
+        gap: 1rem;
+    }
     .hero-subtitle {
         font-size: 2rem;
+        width: 100%;
+        text-align: start;
     }
 }
