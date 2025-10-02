@@ -154,9 +154,9 @@ a:hover {
 /* VARIABLES */
 
 :root {
-    --primary-bg-color: #F4F4F4;
+    --primary-bg-color: #F9F9F9;
     --secondary-bg-color: #FFFFFF;
-    --footer-bg-color: #f8f8f8;
+    --footer-bg-color: #F4F4F4;
     --divider-color: #333333;
     --primary-color: #55C1BE;
     --call-to-action-color: #F5A963;
