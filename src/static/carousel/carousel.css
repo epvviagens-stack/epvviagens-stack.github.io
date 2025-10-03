@@ -46,6 +46,19 @@
     box-sizing: border-box;
 }
 
+.carousel-global-counter {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 500;
+    z-index: 10;
+}
+
 .carousel-slide img {
     flex: 1 1 50%;
     width: 50%;
@@ -164,9 +177,12 @@
         font-size: 0.95rem;
     }
     .carousel-nav {
-        bottom: 10px;
-        right: 50%;
-        transform: translateX(50%);
+        visibility: hidden;
+        display: none;
+    }
+    .mediaq-hidden {
+        display: none;
+        visibility: hidden;
     }
 }
 
