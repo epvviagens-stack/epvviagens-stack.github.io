@@ -10,10 +10,19 @@ document.addEventListener('DOMContentLoaded', function() {
     let currentX = 0;
     let animationID = null;
 
+    const counter = document.createElement('div');
+    counter.classList.add('carousel-global-counter');
+    track.parentElement.appendChild(counter);
+
+    function updateCounter() {
+        counter.textContent = `${currentIndex + 1}/${slides.length}`;
+    }
+
     function moveToSlide(index) {
         currentIndex = (index + slides.length) % slides.length;
         track.style.transition = 'transform 0.4s ease-in-out';
         track.style.transform = `translateX(-${currentIndex * 100}%)`;
+        updateCounter();
     }
 
     nextBtn.addEventListener('click', () => moveToSlide(currentIndex + 1));

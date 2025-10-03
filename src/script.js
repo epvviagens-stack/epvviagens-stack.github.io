@@ -73,12 +73,12 @@ function createCard(row) {
     a.textContent = row.Botao;
     a.setAttribute('aria-label', `Leia mais sobre ${row.Titulo}`);
 
-    const span = document.createElement('span');
-    span.className = 'post-date';
-    span.textContent = (row.Data.length <= 5) ? `${row.Data}/${new Date().getFullYear()}` : row.Data;
+    // const span = document.createElement('span');
+    // span.className = 'post-date';
+    // span.textContent = (row.Data.length <= 5) ? `${row.Data}/${new Date().getFullYear()}` : row.Data;
 
     cardFooter.appendChild(a);
-    cardFooter.appendChild(span);
+    // cardFooter.appendChild(span);
 
     divContent.appendChild(h3);
     divContent.appendChild(p);
