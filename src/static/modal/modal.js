@@ -18,6 +18,7 @@ overlay.addEventListener("click", (e) => {
 function showSnackbar(message, isSuccess = true) {
     snackbar.textContent = message;
     snackbar.className = "show";
+    console.log("FeedbackService Message:", message)
     if (isSuccess) {
         snackbar.classList.add("success");
     } else {

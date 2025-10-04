@@ -27,7 +27,7 @@
 /* Modal */
 
 .modal {
-    background: #fff;
+    background: var(--secondary-bg-color);
     border-radius: 12px;
     padding: 20px;
     width: 380px;
@@ -86,15 +86,15 @@ input {
 }
 
 input:focus {
-    border-color: #ff9800;
+    border-color: var(--call-to-action-color);
 }
 
 .error {
-    border-color: red;
+    border-color: var(--error-background-color);
 }
 
 .error-message {
-    color: red;
+    color: var(--error-background-color);
     font-size: 12px;
     margin-top: -8px;
 }
@@ -103,7 +103,7 @@ button[type="submit"] {
     margin-top: 10px;
     padding: 12px;
     border: none;
-    background: #ff9800;
+    background: var(--call-to-action-color);
     color: white;
     border-radius: 6px;
     font-size: 16px;
@@ -111,5 +111,5 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-    background: #e68900;
+    background: var(--call-to-action-color-hover);
 }

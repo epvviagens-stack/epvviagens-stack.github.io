@@ -117,7 +117,6 @@ a:hover {
 
 .btn {
     display: flex;
-    max-width: 17ch;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -151,7 +150,7 @@ a:hover {
 }
 
 .btn-primary:hover {
-    background-color: var(--primary-color);
+    background-color: var(--call-to-action-color-hover);
     color: var(--font-color-light);
     box-shadow: var(--box-shadow-color);
 }
@@ -194,6 +193,7 @@ a:hover {
     --divider-color: #333333;
     --primary-color: #55C1BE;
     --call-to-action-color: #F5A963;
+    --call-to-action-color-hover: #e08c3f;
     --highlight-color: #F5A963;
     --font-color-light: #FDF2E0;
     --font-color-dark: #333333;
@@ -205,6 +205,8 @@ a:hover {
     --border-radius: 13px;
     --box-shadow-color: 0 4px 6px rgba(0, 0, 0, 0.2);
     --box-shadow-hover: 0 8px 16px rgba(0, 0, 0, 0.3);
+    --success-background-color: #5CB85C;
+    --error-background-color: #EF5350;
 }
 
 @media (max-width: 992px) {
