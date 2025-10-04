@@ -1,21 +1,20 @@
 @import url('../common/root.css');
 #snackbar {
     visibility: hidden;
-    border: var(--border-radius);
-    min-width: 250px;
-    margin-left: -125px;
-    background-color: #333;
-    color: #fff;
+    opacity: 0;
+    min-width: 2rem;
+    background-color: var(--font-color-dark);
+    color: var(--secondary-bg-color);
     text-align: center;
-    border-radius: 2px;
+    border-radius: var(--border-radius);
     padding: 16px;
     position: fixed;
-    z-index: 100;
+    z-index: 9999;
     left: 50%;
-    bottom: 30px;
-    font-size: 17px;
+    bottom: 2rem;
+    font-size: 2rem;
     transition: visibility 0s, opacity 0.5s linear;
-    opacity: 0;
+    transform: translateX(-50%);
 }
 
 #snackbar.show {
@@ -24,11 +23,11 @@
 }
 
 #snackbar.success {
-    background-color: #04AA6D;
+    background-color: var(--success-background-color)
 }
 
 #snackbar.error {
-    background-color: #f44336;
+    background-color: var(--error-background-color);
 }
 
 button:disabled {
