@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <title>Post - É pra viajar</title>
+    <link rel="icon" type="image/x-icon" href="static/favicon.ico">
+
+    <link rel="stylesheet" href="../static/common/root.css">
+    <link rel="stylesheet" href="../static/common/footer.css">
+    <link rel="stylesheet" href="post.css">
+    <link rel="stylesheet" href="../static/modal/modal.css">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <script defer src="../static/modal/modal.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+
+    <script defer src="post.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="container col-12 header">
+            <div class="col-6 flex logo-container">
+                <a href="../index.html" class="logo flex header-logo">
+                    <img class="logo-svg" src="../static/logo.svg" alt="EP">
+                    <span class="logo-text">É pra viajar</span>
+                </a>
+            </div>
+            <nav class="col-6 header-nav">
+                <a href="../index.html" class="nav-link">Inicio</a>
+                <div class="divider-vertical"></div>
+                <div class="btn btn-secondary open-modal" id="open-modal">Fale conosco</div>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <div class="loading-spinner-container">
+            <div class="loading-spinner"></div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section descricao">
+                <p>Hoje, a É pra viajar é mais do que uma agência de viagens: é um convite para transformar cada viagem em uma história que vale a pena contar.</p>
+            </div>
+            <div class="footer-section localizacao">
+                <h4>Localização</h4>
+                <p>1723 Frederico Maurer,<br> Hauer, Curitiba<br> 80100-000</p>
+            </div>
+            <div class="footer-section contato">
+                <h4>Contato</h4>
+                <p>luciana@epraviajar.com</p>
+                <p>(41) 98787-0348</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 por ÉpraViajar, todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <div class="modal-overlay" id="modal-overlay">
+        <div class="modal">
+            <button class="close-btn" id="close-modal">&times;</button>
+            <h2>Entre em contato</h2>
+            <form id="contact-form" action="https://formsubmit.co/leo_falango@hotmail.com" method="POST">
+                <input type="hidden" name="_subject" value="Novo contato - formulário de viagem">
+                <input type="hidden" name="_captcha" value="false">
+
+                <div>
+                    <label for="name">Nome *</label>
+                    <input type="text" id="name" name="name" placeholder="Seu name">
+                    <div class="error-message" id="name-error"></div>
+                </div>
+
+                <div>
+                    <label for="contact">Celular *</label>
+                    <input type="tel" id="contact" name="contact" placeholder="DDD + Número">
+                    <div class="error-message" id="contact-error"></div>
+                </div>
+
+                <div>
+                    <label for="target">Destino da viagem *</label>
+                    <input type="text" id="target" name="target" placeholder="Ex: Macapá">
+                    <div class="error-message" id="target-error"></div>
+                </div>
+
+                <div>
+                    <label for="date">Data da viagem *</label>
+                    <input type="date" id="date" name="date">
+                    <div class="error-message" id="date-error"></div>
+                </div>
+
+                <button type="submit">Enviar</button>
+            </form>
+            <div id="snackbar"></div>
+        </div>
+    </div>
+</body>
+
+</html>
