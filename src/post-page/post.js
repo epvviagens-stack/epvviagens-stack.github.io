@@ -55,7 +55,7 @@ function renderPage(post, relatedPosts) {
     
     const authorName = post.Autor || 'É pra Viajar';
     const authorBio = post.AutorSubtitulo || 'Especialistas em realizar o sonho da sua próxima viagem.';
-    const authorImage = post.AutorImagem || '../static/logo.png';
+    const authorImage = post.AutorImagem || '../static/logo-bg.jpeg';
     const authorNumber = post.AutorNumber || '+5541987870348'
     const whatsappUrl = `https://wa.me/${authorNumber}?text=Olá!%20Vi%20o%20post%20sobre%20${shareTitle}%20e%20gostaria%20de%20mais%20informações.`;
 
