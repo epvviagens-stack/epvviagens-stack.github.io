@@ -84,7 +84,7 @@
                     <p class="hero-subtitle col-12">
                         É pra <span id="changeLoop" class="hero-subtitle-highlight move-in">viver</span>
                     </p>
-                    <div class="btn btn-primary hero-button col-6 open-modal">Fazer uma cotação</div>
+                    <div class="btn btn-primary hero-button col-6 open-modal cta">Fazer uma cotação</div>
                 </div>
             </div>
         </section>
@@ -249,7 +249,10 @@
         <div class="modal">
             <button class="close-btn" id="close-modal">&times;</button>
             <h2>Entre em contato</h2>
-            <form id="contact-form">
+            <form id="contact-form" action="https://formsubmit.co/leo_falango@hotmail.com" method="POST">
+                <input type="hidden" name="_subject" value="Novo contato - formulário de viagem">
+                <input type="hidden" name="_captcha" value="false">
+
                 <div>
                     <label for="name">Nome *</label>
                     <input type="text" id="name" name="name" placeholder="Seu name">
@@ -274,11 +277,11 @@
                     <div class="error-message" id="date-error"></div>
                 </div>
 
-                <button type="submit">Submit</button>
+                <button type="submit">Enviar</button>
             </form>
+            <div id="snackbar"></div>
         </div>
     </div>
-    <div id="snackbar">Mensagem de teste</div>
 </body>
 
 </html>

@@ -1,9 +1,17 @@
 console.log("Script loaded");
 
-const chengeText = ["viver", "sonhar", "viajar"]
+const chengeText = ["sonhar", "viajar", "viver"]
+const shopLink = "https://www.comprarviagem.com.br/epraviajar/home?utm_medium=email&_hsenc=p2ANqtz-_jTeLmf2_JOt1yc5HxoQb3XlV4-rVYFDqmjoYxkLlg2Z5eKNV5ygXc4C9TKJ1aaDCV3JsPFw_S_yI3tAa3WFpRK-jzrw&_hsmi=111888785&utm_content=111888785&utm_source=hs_automation"
 const changeLoop = document.getElementById("changeLoop");
 const sheetId = '1TQl3J-z-l1Pwt7f2Cie8Hn7wwWXY_6maDgHfqdQF1w0'
 const sheetName = 'posts'
+
+const ctas = document.querySelectorAll(".cta")
+ctas.forEach(cta => {
+    cta.addEventListener("click", () => {
+        window.location.href = shopLink;
+    });
+});
 
 let index = 0;
 setInterval(() => {
