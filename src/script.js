@@ -76,7 +76,7 @@ function createCard(row) {
     cardFooter.className = 'card-footer';
 
     const a = document.createElement('a');
-    a.href = new URLSearchParams({ title: row.Titulo }).toString().replace(/%20/g, '+');
+    a.href = a.href = `./post-page/post.html?title=${encodeURIComponent(row.Titulo)}`;
     a.className = 'btn btn-primary';
     a.textContent = row.Botao;
     a.setAttribute('aria-label', `Leia mais sobre ${row.Titulo}`);

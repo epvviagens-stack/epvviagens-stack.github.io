@@ -25,7 +25,7 @@ function showSnackbar(message, isSuccess = true) {
         snackbar.classList.add("error");
     }
     setTimeout(() => {
-        snackbar.className = snackbar.className.replace("show", "");
+        snackbar.classList.remove('show', 'success', 'error');
     }, 3000);
 }
 
@@ -64,31 +64,25 @@ form.addEventListener("submit", function(e) {
     submitButton.disabled = true;
     submitButton.textContent = "Enviando...";
 
-    const smtpBody = {
-        SecureToken: SECURETOKEN,
-        To: TARGETMAIL,
-        From: SOURCEMAIL,
-        Subject: "Novo contato - formulário de viagem",
-        Body: `
-            <b>Nome:</b> ${name.value}<br>
-            <b>Celular:</b> ${contact.value}<br>
-            <b>Destino:</b> ${target.value}<br>
-            <b>Data:</b> ${date.value}
-        `
-    }
-
-    Email.send(smtpBody)
-        .then(message => {
-            if (message === 'OK') {
-                showSnackbar('Enviado com sucesso!', true);
-                overlay.style.display = 'none';
-                form.reset();
-            } else {
-                throw new Error(message);
+    const formData = new FormData(form);
+    console.log(formData)
+    fetch(form.action, {
+            method: "POST",
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
             }
         })
+        .then(response => {
+            if (response.ok) {
+                showSnackbar('Enviado com sucesso!', true);
+                form.reset();
+                return;
+            }
+            throw new Error('Erro na resposta do servidor.')
+        })
         .catch(error => {
-            console.error("Erro ao enviar e-mail:", error);
+            console.error("Erro ao enviar e-mail:", error || "defaultError");
             showSnackbar('Erro ao enviar. Tente novamente.', false);
         })
         .finally(() => {
