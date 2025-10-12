@@ -70,7 +70,7 @@ function createCard(row) {
     h3.textContent = row.Titulo;
 
     const p = document.createElement('p');
-    p.textContent = row.Conteudo.slice(0, 100) + '...';
+    p.textContent = row.Subtitulo;
 
     const cardFooter = document.createElement('div');
     cardFooter.className = 'card-footer';
@@ -109,7 +109,7 @@ fetch(csvUrl)
 
         const data = parsed.data;
         const validRows = data.filter(row =>
-            row.Titulo && row.Conteudo && row.Imagem && row.Alt && row.Data
+            row.Titulo && row.Subtitulo && row.Imagem && row.Alt && row.Data
         );
 
         validRows.sort((a, b) => {

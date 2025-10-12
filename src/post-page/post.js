@@ -2,6 +2,28 @@ const sheetId = '1TQl3J-z-l1Pwt7f2Cie8Hn7wwWXY_6maDgHfqdQF1w0';
 const sheetName = 'posts';
 const csvUrl = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:csv&sheet=${encodeURIComponent(sheetName)}`;
 
+function createOgHeaders(post) {
+    const head = document.head;
+    document.querySelectorAll('meta[property^="og:"]').forEach(tag => tag.remove());
+
+    const ogProperties = {
+        'og:title': post.Titulo,
+        'og:description': post.ConteudoCompleto.slice(0, 155) + '...', 
+        'og:image': post.Imagem,
+        'og:url': window.location.href,
+        'og:type': 'article',
+        'og:site_name': 'É pra Viajar'
+    };
+
+    for (const property in ogProperties) {
+        const metaTag = document.createElement('meta');
+        metaTag.setAttribute('property', property);
+        metaTag.setAttribute('content', ogProperties[property]);
+        head.appendChild(metaTag);
+    }
+}
+
+
 function findPostByTitle(data, title) {
     const decodedTitle = decodeURIComponent(title.replace(/\+/g, ' '));
     return data.find(row => row.Titulo && row.Titulo.trim().toLowerCase() === decodedTitle.trim().toLowerCase());
@@ -49,6 +71,7 @@ function renderPage(post, relatedPosts) {
     }
 
     document.title = `${post.Titulo} - É pra viajar`;
+    createOgHeaders(post)
 
     const shareUrl = window.location.href;
     const shareTitle = encodeURIComponent(post.Titulo);
