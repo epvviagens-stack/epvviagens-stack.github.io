@@ -1,12 +1,16 @@
 console.log("Script loaded");
 
-const chengeText = ["sonhar", "viajar", "viver"]
-const shopLink = "https://www.comprarviagem.com.br/epraviajar/home?utm_medium=email&_hsenc=p2ANqtz-_jTeLmf2_JOt1yc5HxoQb3XlV4-rVYFDqmjoYxkLlg2Z5eKNV5ygXc4C9TKJ1aaDCV3JsPFw_S_yI3tAa3WFpRK-jzrw&_hsmi=111888785&utm_content=111888785&utm_source=hs_automation"
+const chengeText = ["sonhar", "viajar", "viver"];
+const shopLink = "https://www.comprarviagem.com.br/epraviajar/home?utm_medium=email&_hsenc=p2ANqtz-_jTeLmf2_JOt1yc5HxoQb3XlV4-rVYFDqmjoYxkLlg2Z5eKNV5ygXc4C9TKJ1aaDCV3JsPFw_S_yI3tAa3WFpRK-jzrw&_hsmi=111888785&utm_content=111888785&utm_source=hs_automation";
 const changeLoop = document.getElementById("changeLoop");
-const sheetId = '1TQl3J-z-l1Pwt7f2Cie8Hn7wwWXY_6maDgHfqdQF1w0'
-const sheetName = 'posts'
+const sheetId = '1TQl3J-z-l1Pwt7f2Cie8Hn7wwWXY_6maDgHfqdQF1w0';
+const sheetName = 'posts';
+const csvUrl = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:csv&sheet=${encodeURIComponent(sheetName)}`;
 
-const ctas = document.querySelectorAll(".cta")
+
+let allPosts = [];
+
+const ctas = document.querySelectorAll(".cta");
 ctas.forEach(cta => {
     cta.addEventListener("click", () => {
         window.location.href = shopLink;
@@ -15,31 +19,17 @@ ctas.forEach(cta => {
 
 let index = 0;
 setInterval(() => {
-    changeLoop.classList.remove("move-in");
-    setTimeout(() => {
-        changeLoop.classList.add("move-in");
-        changeLoop.textContent = chengeText[index];
-        index++;
-        if (index >= chengeText.length) index = 0;
-    }, 500);
+    if (changeLoop) {
+        changeLoop.classList.remove("move-in");
+        setTimeout(() => {
+            changeLoop.classList.add("move-in");
+            changeLoop.textContent = chengeText[index];
+            index++;
+            if (index >= chengeText.length) index = 0;
+        }, 500);
+    }
 }, 2000);
 
-
-const csvUrl = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:csv&sheet=${encodeURIComponent(sheetName)}`;
-
-function parseCSV(text) {
-    const lines = text.split('\n').filter(l => l.trim() !== '');
-    const header = lines[0].split(',').map(h => h.trim());
-    const rows = lines.slice(1).map(l => {
-        const cols = l.split(',').map(c => c.trim());
-        const obj = {};
-        header.forEach((h, i) => {
-            obj[h] = cols[i];
-        });
-        return obj;
-    });
-    return rows;
-}
 
 function formatDateForSort(dateStr) {
     const parts = dateStr.split('/');
@@ -56,8 +46,9 @@ function formatDateForSort(dateStr) {
 }
 
 function createCard(row) {
-    const article = document.createElement('article');
+    const article = document.createElement('a');
     article.className = 'post-card';
+    article.href = `./post-page/post.html?title=${encodeURIComponent(row.Titulo)}`;
 
     const img = document.createElement('img');
     img.src = row.Imagem;
@@ -70,23 +61,18 @@ function createCard(row) {
     h3.textContent = row.Titulo;
 
     const p = document.createElement('p');
-    p.textContent = row.Subtitulo;
+    p.textContent = row.Subtitulo.slice(0, 100) + '...';
 
     const cardFooter = document.createElement('div');
     cardFooter.className = 'card-footer';
 
     const a = document.createElement('a');
-    a.href = a.href = `./post-page/post.html?title=${encodeURIComponent(row.Titulo)}`;
+    a.href = `./post-page/post.html?title=${encodeURIComponent(row.Titulo)}`;
     a.className = 'btn btn-primary';
     a.textContent = row.Botao;
     a.setAttribute('aria-label', `Leia mais sobre ${row.Titulo}`);
 
-    // const span = document.createElement('span');
-    // span.className = 'post-date';
-    // span.textContent = (row.Data.length <= 5) ? `${row.Data}/${new Date().getFullYear()}` : row.Data;
-
     cardFooter.appendChild(a);
-    // cardFooter.appendChild(span);
 
     divContent.appendChild(h3);
     divContent.appendChild(p);
@@ -98,34 +84,72 @@ function createCard(row) {
     return article;
 }
 
-console.log("Fetching CSV");
-fetch(csvUrl)
-    .then(response => response.text())
-    .then(csvText => {
-        const parsed = Papa.parse(csvText, {
-            header: true,
-            skipEmptyLines: true
-        });
-
-        const data = parsed.data;
-        const validRows = data.filter(row =>
-            row.Titulo && row.Subtitulo && row.Imagem && row.Alt && row.Data
-        );
-
-        validRows.sort((a, b) => {
-            const dateA = formatDateForSort(a.Data);
-            const dateB = formatDateForSort(b.Data);
-            return dateB - dateA;
-        });
-
-        const top6 = validRows.slice(0, 6);
-        const container = document.getElementById('render-posts');
-
-        top6.forEach(row => {
-            const card = createCard(row);
-            container.appendChild(card);
-        });
-    })
-    .catch(error => {
-        console.error('Erro ao carregar os dados:', error);
+function renderPosts(posts) {
+    const container = document.getElementById('render-posts');
+    if (!container) return;
+    container.innerHTML = '';
+    posts.forEach(row => {
+        const card = createCard(row);
+        container.appendChild(card);
     });
+}
+
+function filterPosts(term) {
+    const lowerCaseTerm = term.toLowerCase();
+    const filteredPosts = allPosts.filter(post => {
+        const titleMatch = post.Titulo.toLowerCase().includes(lowerCaseTerm);
+        const categoryMatch = post.Categoria ? post.Categoria.toLowerCase().includes(lowerCaseTerm) : false;
+        const tagsMatch = post.Tags ? post.Tags.toLowerCase().includes(lowerCaseTerm) : false;
+        return titleMatch || categoryMatch || tagsMatch;
+    });
+    renderPosts(filteredPosts);
+}
+
+const header = document.getElementsByClassName("header")[0];
+const searchInput = document.getElementById("search-input"); 
+const searchIcon = document.getElementById("search-icon"); 
+
+document.addEventListener('click', (e) => {
+    if (!e.target.closest('.search-container')) {
+        searchInput.classList.remove('active');
+        header.classList.remove("search-expanded")
+    }
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    searchIcon.addEventListener("click", (e) => { 
+        if (!searchInput.classList.contains("active")) {
+            e.preventDefault();
+            searchInput.classList.add("active");
+            searchInput.focus();
+            header.classList.add("search-expanded")
+        }
+    });
+    
+
+    fetch(csvUrl)
+        .then(response => response.text())
+        .then(csvText => {
+            const parsed = Papa.parse(csvText, {
+                header: true,
+                skipEmptyLines: true
+            });
+
+            const data = parsed.data;
+            allPosts = data.filter(row =>
+                row.Titulo && row.Subtitulo && row.Imagem && row.Alt && row.Data
+            );
+
+            allPosts.sort((a, b) => {
+                const dateA = formatDateForSort(a.Data);
+                const dateB = formatDateForSort(b.Data);
+                return dateB - dateA;
+            });
+
+            renderPosts(allPosts.slice(0, 6));
+        })
+        .catch(error => {
+            console.error('Erro ao carregar os dados:', error);
+        });
+
+});
