@@ -3,6 +3,12 @@
     height: calc(100vh - 80px);
 }
 
+.hero .btn {
+    font-weight: var(--semi-bold);
+    font-size: 1.2rem;
+    padding: 1.2rem;
+}
+
 .hero-video {
     position: absolute;
     top: 50%;
@@ -67,6 +73,9 @@
 }
 
 @media (max-width: 992px) {
+    .hero {
+        height: calc(100vh - 50px);
+    } 
     .hero-title {
         font-size: 3.5rem;
     }
