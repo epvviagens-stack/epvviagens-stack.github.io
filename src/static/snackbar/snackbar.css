@@ -34,3 +34,10 @@ button:disabled {
     opacity: 0.6;
     cursor: not-allowed;
 }
+
+@media (max-width: 992px) {
+    #snackbar {
+        font-size: 1rem;
+        width: 65%;
+    }
+}

@@ -22,6 +22,11 @@ overlay.addEventListener("click", (e) => {
     if (e.target === overlay) overlay.style.display = "none";
 });
 
+snackbar.addEventListener("click", () => {
+    snackbar.classList.remove('show', 'success', 'error')
+})
+
+
 function showSnackbar(message, isSuccess = true) {
     snackbar.textContent = message;
     snackbar.className = "show";
