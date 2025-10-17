@@ -30,8 +30,8 @@
 
     <meta property="og:title" content="É pra viajar - Realize seus sonhos com a gente!">
     <meta property="og:description" content="Transforme cada viagem em uma experiência inesquecível. Pacotes, passagens, roteiros e muito mais.">
-    <meta property="og:image" content="https://epvviagens-stack.github.io/src/static/logo.png">
-    <meta property="og:url" content="https://epvviagens-stack.github.io/">
+    <meta property="og:image" content="https://epvviagens-stack.github.io/src/static/logo-bg.jpeg">
+    <meta property="og:url" content="https://epvviagens-stack.github.io/src/">
     <meta property="og:type" content="website">
 
     <!-- FontFamily -->
@@ -45,7 +45,7 @@
     <!-- Libs -->
     <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
     <script src="https://smtpjs.com/v3/smtp.js"></script>
-
+    
     <!-- Icons -->
     <!-- <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script> -->
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZmCULaMxtR+ZjO+eqYhZyT2+0oSbXyG7TvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" -->
@@ -240,8 +240,8 @@
         </div>
         <div class="footer-bottom">
             <div class="social-icons">
-                <a href="https://wa.me/+5541987870348?text=Olá%20vi%20seu%20site%20e%20tenho%20interesse%20em%20comprar%20pacotes%20aéreos%20com%20voce"><i class="fa-brands fa-whatsapp footer-social-icon"></i></a>
-                <a href="mailto:contato@epraviajar.com.br?subject=Olá tenho interesse em comprar viagens&body=Mensagem enviada do site!"><i class="fa-regular fa-envelope footer-social-icon"></i></a>
+                <a href="https://wa.me/+5541987870348?text=Olá!%20vi%20seu%20site%20e%20tenho%20interesse%20em%20comprar%20pacotes%20aéreos%20com%20você"><i class="fa-brands fa-whatsapp footer-social-icon"></i></a>
+                <a href="mailto:contato@epraviajar.com.br?subject=Olá! tenho interesse em comprar viagens&body=Mensagem enviada do site!"><i class="fa-regular fa-envelope footer-social-icon"></i></a>
                 <a href="https://www.instagram.com/epraviajar" target="_blank"><i class="fa-brands fa-instagram footer-social-icon"></i></a>
                 <a href="#"><i class="fa-brands fa-facebook footer-social-icon"></i></a>
             </div>
@@ -266,13 +266,13 @@
 
                 <div>
                     <label for="contact">Celular *</label>
-                    <input type="tel" id="contact" name="contact" placeholder="DDD + Número">
+                    <input type="tel" id="contact" name="contact" placeholder="DDD + Número" maxlength="15">
                     <div class="error-message" id="contact-error"></div>
                 </div>
 
                 <div>
                     <label for="target">Destino da viagem *</label>
-                    <input type="text" id="target" name="target" placeholder="Ex: Macapá">
+                    <input type="text" id="target" name="target" placeholder="Ex: Nova York">
                     <div class="error-message" id="target-error"></div>
                 </div>
 
@@ -284,9 +284,9 @@
 
                 <button type="submit">Enviar</button>
             </form>
-            <div id="snackbar"></div>
         </div>
     </div>
+    <div id="snackbar">Enviado com sucesso!</div>
 </body>
 
 </html>
