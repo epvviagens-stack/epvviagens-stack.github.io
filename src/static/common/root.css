@@ -291,14 +291,11 @@ input:focus {
     .logo-text {
         display: none;
     }
-
-    .header.search-expanded .header-nav a {
-        display: none;
-    }
-    .header.search-expanded .divider-vertical {
-        display: none;
-    }
-    .header.search-expanded .btn {
-        display: none;
+    .header.search-expanded .header-nav a,
+    .header.search-expanded .divider-vertical,
+    .header.search-expanded .btn  {
+        width: 0;
+        opacity: 0;
+        transition: opacity 0.3s;
     }
 }

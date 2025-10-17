@@ -112,7 +112,7 @@ const searchIcon = document.getElementById("search-icon");
 document.addEventListener('click', (e) => {
     if (!e.target.closest('.search-container')) {
         searchInput.classList.remove('active');
-        header.classList.remove("search-expanded")
+        setTimeout(() => header.classList.remove("search-expanded"), 300)
     }
 });
 
@@ -120,9 +120,9 @@ document.addEventListener('DOMContentLoaded', () => {
     searchIcon.addEventListener("click", (e) => { 
         if (!searchInput.classList.contains("active")) {
             e.preventDefault();
+            header.classList.add("search-expanded")
             searchInput.classList.add("active");
             searchInput.focus();
-            header.classList.add("search-expanded")
         }
     });
     
