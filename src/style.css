@@ -7,7 +7,6 @@ main section {
 }
 
 
-/* SECTION POSTS */
 
 .related-posts {
     width: 75%;
@@ -73,8 +72,8 @@ main section {
     color: var(--sub-font-color-dark);
     margin-bottom: 1rem;
     display: -webkit-box;
-    -webkit-line-clamp: 2;
-    line-clamp: 2;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
@@ -109,6 +108,11 @@ main section {
 @media (max-width: 992px) {
     .posts-grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+    .card-footer a {
+        width: 100%;
+        display: flex;
+        justify-content: center;
     }
 }
 

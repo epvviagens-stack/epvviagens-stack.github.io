@@ -1,0 +1,30 @@
+.search-results-section {
+    width: 75%;
+    max-width: 1200px;
+    margin: 4rem auto;
+}
+
+#search-results-title {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.search-hint {
+    margin-top: 8px;
+    font-size: 0.85rem;
+    color: var(--sub-font-color-dark); 
+    margin-bottom: 2rem;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
