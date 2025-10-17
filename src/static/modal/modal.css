@@ -63,7 +63,7 @@
     background: none;
 }
 
-form {
+.modal-overlay form {
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -100,7 +100,7 @@ input:focus {
     margin-top: -8px;
 }
 
-button[type="submit"] {
+.modal-overlay button[type="submit"] {
     margin-top: 10px;
     padding: 12px;
     border: none;
@@ -111,6 +111,6 @@ button[type="submit"] {
     cursor: pointer;
 }
 
-button[type="submit"]:hover {
+.modal-overlay buttonbutton[type="submit"]:hover {
     background: var(--call-to-action-color-hover);
 }

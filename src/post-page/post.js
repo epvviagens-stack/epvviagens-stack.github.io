@@ -2,6 +2,30 @@ const sheetId = '1TQl3J-z-l1Pwt7f2Cie8Hn7wwWXY_6maDgHfqdQF1w0';
 const sheetName = 'posts';
 const csvUrl = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:csv&sheet=${encodeURIComponent(sheetName)}`;
 
+// SearchButton
+const header = document.getElementsByClassName("header")[0];
+const searchInput = document.getElementById("search-input"); 
+const searchIcon = document.getElementById("search-icon"); 
+
+document.addEventListener('click', (e) => {
+    if (!e.target.closest('.search-container')) {
+        searchInput.classList.remove('active');
+        header.classList.remove("search-expanded")
+    }
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    searchIcon.addEventListener("click", (e) => { 
+        if (!searchInput.classList.contains("active")) {
+            e.preventDefault();
+            searchInput.classList.add("active");
+            searchInput.focus();
+            header.classList.add("search-expanded")
+        }
+    });
+});
+
+
 function createOgHeaders(post) {
     const head = document.head;
     document.querySelectorAll('meta[property^="og:"]').forEach(tag => tag.remove());

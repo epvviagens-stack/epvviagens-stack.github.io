@@ -7,7 +7,6 @@ main section {
 }
 
 
-/* SECTION POSTS */
 
 .related-posts {
     width: 75%;
@@ -113,7 +112,7 @@ main section {
     .card-footer a {
         width: 100%;
         display: flex;
-        justify-content: ce;
+        justify-content: center;
     }
 }
 
