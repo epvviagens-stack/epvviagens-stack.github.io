@@ -51,6 +51,7 @@
 .modal h2 {
     margin-top: 0;
     font-size: 20px;
+    margin-bottom: 1.5rem;
 }
 
 .close-btn {
@@ -81,9 +82,12 @@ input {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 6px;
-    font-size: 14px;
+    font-size: 1rem;
     outline: none;
     box-sizing: border-box;
+    font-family: inherit;
+    -webkit-appearance: none;
+    appearance: none;
 }
 
 input:focus {
@@ -97,7 +101,6 @@ input:focus {
 .error-message {
     color: var(--error-background-color);
     font-size: 12px;
-    margin-top: -8px;
 }
 
 .modal-overlay button[type="submit"] {
@@ -109,8 +112,9 @@ input:focus {
     border-radius: 6px;
     font-size: 16px;
     cursor: pointer;
+    font-weight: var(--semi-bold);
 }
 
-.modal-overlay buttonbutton[type="submit"]:hover {
+.modal-overlay button[type="submit"]:hover {
     background: var(--call-to-action-color-hover);
 }
