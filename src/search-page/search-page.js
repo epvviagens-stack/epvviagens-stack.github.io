@@ -93,10 +93,27 @@ document.addEventListener('DOMContentLoaded', () => {
             filterPosts(searchTerm);
 
             searchInput.addEventListener('input', e => {
-                const newSearchTerm = e.target.value;
+                const newSearchTerm = e.target.value.trim();
                 const newUrl = `${window.location.pathname}?q=${encodeURIComponent(newSearchTerm)}`;
-                history.pushState(null, '', newUrl);
+                history.replaceState(null, '', newUrl);
                 debouncedFilter(newSearchTerm);
+                });
+
+            searchInput.addEventListener('keydown', e => {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    const confirmedTerm = e.target.value.trim();
+                    const newUrl = `${window.location.pathname}?q=${encodeURIComponent(confirmedTerm)}`;
+                    history.pushState(null, '', newUrl);
+                    filterPosts(confirmedTerm);
+                }
             });
         });
+});
+
+
+const clearBtn = document.getElementById("clear-btn");
+clearBtn.addEventListener("click", () => {
+  searchInput.value = "";
+  searchInput.focus();
 });

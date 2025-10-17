@@ -43,11 +43,24 @@
 
             <div class="search-container">
                 <label for="search-input" class="sr-only">Pesquisar posts</label>
-                <input type="text" name="q" id="search-input" class="search-input active" placeholder="Pesquisar posts..." required>
-                <button type="button" class="btn-icon" id="search-icon"><i class="fas fa-search"></i></button>
+                
+                <div class="search-wrapper">
+                    <input 
+                    type="text" 
+                    name="q" 
+                    id="search-input" 
+                    class="search-input" 
+                    placeholder="Pesquisar posts..." 
+                    required
+                    >
+                    <button type="button" class="clear-btn" id="clear-btn">
+                    <i class="fas fa-times"></i>
+                    </button>
+                    <button type="button" class="search-btn" id="search-btn">
+                    <i class="fas fa-search"></i>
+                    </button>
+                </div>
             </div>
-            <p class="search-hint">Pesquise por título, tags ou categorias</p>
-
             
             <div class="posts-grid" id="render-posts">
                 <div class="loading-spinner-container">

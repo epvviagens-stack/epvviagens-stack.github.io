@@ -162,14 +162,14 @@ a:hover {
 }
 
 /* Search */
-.search-container {
+.header .search-container {
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.search-input {
+.header .search-input {
     width: 0;
     padding: 8px 0;
     border: none;
@@ -185,7 +185,7 @@ input:focus {
     border-color: var(--call-to-action-color);
 }
 
-.search-input.active {
+.header .search-input.active {
     width: 200px;
     padding: 8px;
     opacity: 1;
