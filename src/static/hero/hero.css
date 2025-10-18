@@ -67,7 +67,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('../landing-page/hero/hero-video-fallback.jpg');
+    background-image: url('../../assets/images/hero/hero-video-fallback.jpg');
     background-size: cover;
     background-position: center;
 }
