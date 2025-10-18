@@ -1,14 +1,12 @@
-console.log("Script loaded");
+import { getPosts } from "./assets/functions/getPosts.js";
+import { maskElement } from "./assets/functions/maskElement.js";
 
-const chengeText = ["sonhar", "viajar", "viver"];
+const changeText = ["sonhar", "viajar", "viver"];
 const shopLink = "https://www.comprarviagem.com.br/epraviajar/home?utm_medium=email&_hsenc=p2ANqtz-_jTeLmf2_JOt1yc5HxoQb3XlV4-rVYFDqmjoYxkLlg2Z5eKNV5ygXc4C9TKJ1aaDCV3JsPFw_S_yI3tAa3WFpRK-jzrw&_hsmi=111888785&utm_content=111888785&utm_source=hs_automation";
 const changeLoop = document.getElementById("changeLoop");
-const sheetId = '1TQl3J-z-l1Pwt7f2Cie8Hn7wwWXY_6maDgHfqdQF1w0';
-const sheetName = 'posts';
-const csvUrl = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:csv&sheet=${encodeURIComponent(sheetName)}`;
 
 
-let allPosts = [];
+const allPosts = await getPosts();
 
 const ctas = document.querySelectorAll(".cta");
 ctas.forEach(cta => {
@@ -23,41 +21,16 @@ setInterval(() => {
         changeLoop.classList.remove("move-in");
         setTimeout(() => {
             changeLoop.classList.add("move-in");
-            changeLoop.textContent = chengeText[index];
+            changeLoop.textContent = changeText[index];
             index++;
-            if (index >= chengeText.length) index = 0;
+            if (index >= changeText.length) index = 0;
         }, 500);
     }
 }, 2000);
 
 const contact = document.getElementById("contact")
-contact.addEventListener('input', function (e) {
-    let valor = e.target.value.replace(/\D/g, '');
-    if (valor.length <= 2) {
-        valor = valor.replace(/^(\d*)/, '($1');
-    } else if (valor.length > 2 && valor.length <= 6) {
-        valor = valor.replace(/^(\d{2})(\d*)/, '($1) $2');
-    } else if (valor.length > 6 && valor.length <= 10) {
-        valor = valor.replace(/^(\d{2})(\d{4})(\d*)/, '($1) $2-$3');
-    } else if (valor.length > 10) {
-        valor = valor.replace(/^(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
-    }
-    e.target.value = valor;
-});
+contact.addEventListener('input', (e) => maskElement(e));
 
-function formatDateForSort(dateStr) {
-    const parts = dateStr.split('/');
-    if (parts.length === 2) {
-        const [d, m] = parts;
-        const y = new Date().getFullYear();
-        return new Date(`${y}-${m.padStart(2, '0')}-${d.padStart(2, '0')}`);
-    } else if (parts.length === 3) {
-        const [d, m, y] = parts;
-        return new Date(`${y}-${m.padStart(2, '0')}-${d.padStart(2, '0')}`);
-    } else {
-        return new Date(dateStr);
-    }
-}
 
 function createCard(row) {
     const article = document.createElement('a');
@@ -130,7 +103,7 @@ document.addEventListener('click', (e) => {
     }
 });
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
     searchIcon.addEventListener("click", (e) => { 
         if (!searchInput.classList.contains("active")) {
             e.preventDefault();
@@ -139,31 +112,11 @@ document.addEventListener('DOMContentLoaded', () => {
             searchInput.focus();
         }
     });
-    
-
-    fetch(csvUrl)
-        .then(response => response.text())
-        .then(csvText => {
-            const parsed = Papa.parse(csvText, {
-                header: true,
-                skipEmptyLines: true
-            });
-
-            const data = parsed.data;
-            allPosts = data.filter(row =>
-                row.Titulo && row.Subtitulo && row.Imagem && row.Alt && row.Data
-            );
-
-            allPosts.sort((a, b) => {
-                const dateA = formatDateForSort(a.Data);
-                const dateB = formatDateForSort(b.Data);
-                return dateB - dateA;
-            });
-
-            renderPosts(allPosts.slice(0, 6));
-        })
-        .catch(error => {
-            console.error('Erro ao carregar os dados:', error);
-        });
-
+    try {
+        const allPosts = await getPosts();
+        renderPosts(allPosts.slice(0, 6));
+    }
+    catch (error) {
+        console.error('Erro ao carregar os dados:', error);
+    }
 });

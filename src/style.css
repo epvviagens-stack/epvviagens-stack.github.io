@@ -1,12 +1,10 @@
-@import "static/common/root.css";
+@import "./static/common/root.css";
 main section {
     width: 100%;
     position: relative;
     overflow: hidden;
     margin-bottom: 4rem;
 }
-
-
 
 .related-posts {
     width: 75%;
@@ -34,7 +32,6 @@ main section {
     overflow: hidden;
     transition: all .3s ease;
     cursor: pointer;
-    /* height: 500px; */
     display: flex;
     flex-direction: column;
     justify-content: space-between;

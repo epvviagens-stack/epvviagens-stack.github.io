@@ -1,8 +1,5 @@
-const sheetId = '1TQl3J-z-l1Pwt7f2Cie8Hn7wwWXY_6maDgHfqdQF1w0';
-const sheetName = 'posts';
-const csvUrl = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:csv&sheet=${encodeURIComponent(sheetName)}`;
+import { getPosts } from "../assets/functions/getPosts.js";
 
-// SearchButton
 const header = document.getElementsByClassName("header")[0];
 const searchInput = document.getElementById("search-input"); 
 const searchIcon = document.getElementById("search-icon"); 
@@ -164,28 +161,28 @@ function renderPage(post, relatedPosts) {
     mainContent.innerHTML = pageHTML;
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
+    searchIcon.addEventListener("click", (e) => { 
+        if (!searchInput.classList.contains("active")) {
+            e.preventDefault();
+            searchInput.classList.add("active");
+            searchInput.focus();
+            header.classList.add("search-expanded")
+        }
+    });
+
     const urlParams = new URLSearchParams(window.location.search);
     const postTitle = urlParams.get('title');
 
     if (postTitle) {
-        fetch(csvUrl)
-            .then(response => response.text())
-            .then(csvText => {
-                const parsed = Papa.parse(csvText, { header: true, skipEmptyLines: true });
-                const allPosts = parsed.data.filter(p => p.Titulo);
-                const currentPost = findPostByTitle(allPosts, postTitle);
-                
-                if (currentPost) {
-                    const relatedPosts = findRelatedPosts(allPosts, currentPost);
-                    renderPage(currentPost, relatedPosts);
-                } else {
-                    renderPage(null, []);
-                }
-            })
-            .catch(error => {
-                console.error('Erro ao carregar os dados:', error);
-                document.getElementById('main-content').innerHTML = '<p style="text-align: center; padding: 2rem;">Ocorreu um erro ao carregar o post.</p>';
-            });
+        const allPosts = await getPosts();
+        const currentPost = findPostByTitle(allPosts, postTitle);
+        
+        if (currentPost) {
+            const relatedPosts = findRelatedPosts(allPosts, currentPost);
+            renderPage(currentPost, relatedPosts);
+        } else {
+            renderPage(null, []);
+        }
     }
 });
