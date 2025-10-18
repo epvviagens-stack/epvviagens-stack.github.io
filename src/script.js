@@ -6,8 +6,6 @@ const shopLink = "https://www.comprarviagem.com.br/epraviajar/home?utm_medium=em
 const changeLoop = document.getElementById("changeLoop");
 
 
-const allPosts = await getPosts();
-
 const ctas = document.querySelectorAll(".cta");
 ctas.forEach(cta => {
     cta.addEventListener("click", () => {
@@ -79,17 +77,6 @@ function renderPosts(posts) {
         const card = createCard(row);
         container.appendChild(card);
     });
-}
-
-function filterPosts(term) {
-    const lowerCaseTerm = term.toLowerCase();
-    const filteredPosts = allPosts.filter(post => {
-        const titleMatch = post.Titulo.toLowerCase().includes(lowerCaseTerm);
-        const categoryMatch = post.Categoria ? post.Categoria.toLowerCase().includes(lowerCaseTerm) : false;
-        const tagsMatch = post.Tags ? post.Tags.toLowerCase().includes(lowerCaseTerm) : false;
-        return titleMatch || categoryMatch || tagsMatch;
-    });
-    renderPosts(filteredPosts);
 }
 
 const header = document.getElementsByClassName("header")[0];
