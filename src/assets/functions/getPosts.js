@@ -9,10 +9,10 @@ function formatDateForSort(dateStr) {
     if (parts.length === 2) {
         const [d, m] = parts;
         const y = new Date().getFullYear();
-        return new Date(`${y}-${m.padStart(2, '0')}-${d.padStart(2, '0')}`);
+        return new Date(y, m - 1, d);
     } else if (parts.length === 3) {
         const [d, m, y] = parts;
-        return new Date(`${y}-${m.padStart(2, '0')}-${d.padStart(2, '0')}`);
+        return new Date(y, m - 1, d);
     } else {
         return new Date(dateStr);
     }
@@ -22,6 +22,7 @@ export async function getPosts() {
     const cachedPosts = sessionStorage.getItem('cachedPosts');
     if (cachedPosts) {
         allPosts = JSON.parse(cachedPosts);
+        allPosts.forEach(post => post.dateObject = new Date(post.dateObject));
         return allPosts;
     }
 
@@ -38,11 +39,11 @@ export async function getPosts() {
             row.Titulo && row.Subtitulo && row.Imagem && row.Alt && row.Data
         );
 
-        allPosts.sort((a, b) => {
-            const dateA = formatDateForSort(a.Data);
-            const dateB = formatDateForSort(b.Data);
-            return dateB - dateA;
+        allPosts.forEach(post => {
+            post.dateObject = formatDateForSort(post.Data);
         });
+
+        allPosts.sort((a, b) => b.dateObject - a.dateObject);
 
         sessionStorage.setItem('cachedPosts', JSON.stringify(allPosts));
         return allPosts;
