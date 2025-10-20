@@ -87,7 +87,17 @@ function createRelatedPostCard(post) {
 function renderPage(post, relatedPosts) {
     const mainContent = document.getElementById('main-content');
     if (!post) {
-        mainContent.innerHTML = '<p style="text-align: center; padding: 2rem;">Post não encontrado.</p>';
+        mainContent.innerHTML = `
+            <h1 style="text-align: center;">Post não encontrado.</h1>';
+            ${relatedPosts.length > 0 ? `
+            <section class="related-posts-section">
+                <div class="related-posts-container">
+                    <h2 class="related-title">Veja nossos posts</h2>
+                    <div class="related-grid">
+                        ${relatedPosts.map(createRelatedPostCard).join('')}
+                    </div>
+                </div>
+            </section>` : ''}`
         return;
     }
 
@@ -107,7 +117,7 @@ function renderPage(post, relatedPosts) {
         <div class="author-box">
             <img src="${authorImage}" alt="Foto de ${authorName}" class="author-image">
             <div class="author-info">
-                <div>
+                <div class="left-half">
                     <h4>${authorName}</h4>
                     <p>${authorBio}</p>
                 </div>
@@ -173,16 +183,19 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     const urlParams = new URLSearchParams(window.location.search);
     const postTitle = urlParams.get('title');
-
+    const allPosts = await getPosts();
+    
     if (postTitle) {
-        const allPosts = await getPosts();
         const currentPost = findPostByTitle(allPosts, postTitle);
         
         if (currentPost) {
             const relatedPosts = findRelatedPosts(allPosts, currentPost);
             renderPage(currentPost, relatedPosts);
         } else {
-            renderPage(null, []);
+            renderPage(null, allPosts);
         }
+    }
+    else {
+        renderPage(null, allPosts)
     }
 });

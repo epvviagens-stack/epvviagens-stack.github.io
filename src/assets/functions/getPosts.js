@@ -22,8 +22,17 @@ export async function getPosts() {
     const cachedPosts = sessionStorage.getItem('cachedPosts');
     if (cachedPosts) {
         allPosts = JSON.parse(cachedPosts);
-        allPosts.forEach(post => post.dateObject = new Date(post.dateObject));
-        return allPosts;
+        if (allPosts.length != 0) {
+            try {
+                allPosts.forEach(post => post.dateObject = new Date(post.dateObject));
+                console.log(allPosts)
+                return allPosts;
+            }
+            catch (e) {
+                console.error(e)
+                return [];
+            }
+        }
     }
 
     try {

@@ -1,17 +1,10 @@
 const TARGETMAIL = 'epv.viagens@gmail.com';
-const COPIES = 'leo_falango@hotmail.com';
 
 const openModal = document.getElementById("open-modal");
 const closeModal = document.getElementById("close-modal");
 const overlay = document.getElementById("modal-overlay");
 const form = document.getElementById("contact-form");
 form.action = `https://formsubmit.co/${TARGETMAIL}`
-
-const carbonCopies = document.createElement("input");
-carbonCopies.type = 'hidden';
-carbonCopies.name = '_cc';
-carbonCopies.value = COPIES;
-form.appendChild(carbonCopies)
 
 const submitButton = form.querySelector("button[type='submit']");
 const snackbar = document.getElementById("snackbar");

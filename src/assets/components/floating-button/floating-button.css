@@ -42,6 +42,7 @@
     animation: none;
     justify-content: flex-start;
     padding-left: 17px;
+    animation: pulse 2s infinite;
 }
 
 .floating-button:hover span {
