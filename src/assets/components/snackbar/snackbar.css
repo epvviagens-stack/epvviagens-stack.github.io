@@ -12,7 +12,7 @@
     z-index: 9999;
     left: 50%;
     bottom: 2rem;
-    font-size: 2rem;
+    font-size: 1.25rem;
     transition: visibility 0s, opacity 0.5s linear;
     transform: translateX(-50%);
 }

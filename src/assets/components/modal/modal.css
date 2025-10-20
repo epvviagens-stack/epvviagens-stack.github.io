@@ -98,7 +98,7 @@ input:focus {
     background: var(--call-to-action-color);
     color: white;
     border-radius: 6px;
-    font-size: 16px;
+    font-size: 1rem;
     cursor: pointer;
     font-weight: var(--semi-bold);
 }
