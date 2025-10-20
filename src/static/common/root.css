@@ -201,6 +201,19 @@ input:focus {
     padding: 10px;
 }
 
+[data-tooltip]:hover::after {
+  display: block;
+  position: absolute;
+  border-radius: var(--border-radius);
+  content: attr(data-tooltip);
+  --box-shadow-color: 0 4px 6px rgba(0, 0, 0, 0.2);
+  background: var(--primary-bg-color);
+  padding: .35em;
+  margin-top: .55rem;
+  font-size: 1rem;
+  color: var(--font-color-dark);
+}
+
 
 /* --- Loading --- */
 
@@ -209,6 +222,8 @@ input:focus {
     justify-content: center;
     align-items: center;
     margin-top: 2rem;
+    grid-column: 1 / -1;
+    height: 100%;
 }
 
 .loading-spinner {
