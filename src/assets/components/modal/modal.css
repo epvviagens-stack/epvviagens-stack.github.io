@@ -1,4 +1,4 @@
-.modal-overlay {
+.epv-modal-overlay {
     display: none;
     position: fixed;
     top: 0;
@@ -12,9 +12,9 @@
 }
 
 
-/* Modal */
+/* epv-Modal */
 
-.modal {
+.epv-modal {
     background: var(--secondary-bg-color);
     border-radius: 12px;
     padding: 20px;
@@ -36,7 +36,7 @@
     }
 }
 
-.modal h2 {
+.epv-modal h2 {
     margin-top: 0;
     font-size: 20px;
     margin-bottom: 1.5rem;
@@ -52,7 +52,7 @@
     background: none;
 }
 
-.modal-overlay form {
+.epv-modal-overlay form {
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -91,7 +91,7 @@ input:focus {
     font-size: 12px;
 }
 
-.modal-overlay button[type="submit"] {
+.epv-modal-overlay button[type="submit"] {
     margin-top: 10px;
     padding: 12px;
     border: none;
@@ -103,6 +103,6 @@ input:focus {
     font-weight: var(--semi-bold);
 }
 
-.modal-overlay button[type="submit"]:hover {
+.epv-modal-overlay button[type="submit"]:hover {
     background: var(--call-to-action-color-hover);
 }

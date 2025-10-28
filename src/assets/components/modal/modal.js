@@ -1,9 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
     const TARGETMAIL = 'epv.viagens@gmail.com';
 
-    const openModal = document.getElementById("open-modal");
-    const closeModal = document.getElementById("close-modal");
-    const overlay = document.getElementById("modal-overlay");
+    const openModal = document.getElementById("epv-open-modal");
+    const closeModal = document.getElementById("epv-close-modal");
+    const overlay = document.getElementById("epv-modal-overlay");
     const form = document.getElementById("contact-form");
     form.action = `https://formsubmit.co/${TARGETMAIL}`
 
@@ -71,7 +71,6 @@ document.addEventListener("DOMContentLoaded", () => {
         submitButton.textContent = "Enviando...";
 
         const formData = new FormData(form);
-        console.log(formData)
         fetch(form.action, {
                 method: "POST",
                 body: formData,

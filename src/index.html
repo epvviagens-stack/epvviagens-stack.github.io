@@ -49,7 +49,7 @@
 
     <!-- Modal -->
     <link rel="stylesheet" href="/assets/components/modal/modal.css">
-    <script defer src="/assets/components/modal/modal.js"></script>
+    <script src="/assets/components/modal/modal.js"></script>
 
     <!-- Floating button -->
     <link rel="stylesheet" href="/assets/components/floating-button/floating-button.css">
@@ -72,7 +72,7 @@
                 <a href="./index.html" class="nav-link">Inicio</a>
                 <div class="divider-vertical"></div>
                 
-                <div class="btn btn-secondary open-modal" id="open-modal">Fale conosco</div>
+                <div class="btn btn-secondary epv-open-modal" id="epv-open-modal">Fale conosco</div>
                 <form action="./search-page/search-page.html" method="GET" class="search-container">
                     <input type="text" name="q" id="search-input" class="search-input" placeholder="Pesquisar posts..." required>
                     <button type="submit" class="btn-icon" id="search-icon"><i class="fas fa-search"></i></button>
@@ -99,6 +99,7 @@
                             É pra <span id="changeLoop" class="hero-subtitle-highlight move-in">viver</span>
                         </p>
                     </div>
+                    <div class="btn btn-primary hero-button col-6 epv-open-modal cta">Fazer uma cotação</div>
                     <div>
                        <div id="wrapper">
                         <befly-widget language="pt-br" new-tab="true">
@@ -272,9 +273,9 @@
     </footer>
 
 
-    <div class="modal-overlay" id="modal-overlay">
-        <div class="modal">
-            <button class="close-btn" id="close-modal">&times;</button>
+    <div class="epv-modal-overlay" id="epv-modal-overlay">
+        <div class="epv-modal">
+            <button class="close-btn" id="epv-close-modal">&times;</button>
             <h2>Entre em contato</h2>
             <form id="contact-form" method="POST">
                 <input type="hidden" name="_subject" value="Novo contato - formulário de viagem">
