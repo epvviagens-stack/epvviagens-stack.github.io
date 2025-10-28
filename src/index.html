@@ -54,6 +54,9 @@
     <!-- Floating button -->
     <link rel="stylesheet" href="./assets/components/floating-button/floating-button.css">
     <script defer src="./assets/components/floating-button/floating-button.js"></script>
+
+    <!-- SearchMotor -->
+     <link rel="stylesheet" href="https://static.onertravel.com/widget/search/production/styles.css">
 </head>
 
 <body>
@@ -89,12 +92,23 @@
                     </div>
                 </div>
 
-                <div class="hero-overlay centered column">
-                    <h1 class="hero-title col-12">É pra viajar</h1>
-                    <p class="hero-subtitle col-12">
-                        É pra <span id="changeLoop" class="hero-subtitle-highlight move-in">viver</span>
-                    </p>
+                <div class="hero-overlay column">
+                    <div class="first">
+                        <h1 class="hero-title col-12">É pra viajar</h1>
+                        <p class="hero-subtitle col-12">
+                            É pra <span id="changeLoop" class="hero-subtitle-highlight move-in">viver</span>
+                        </p>
+                    </div>
+                    <div>
+                       <div id="wrapper">
+                        <befly-widget language="pt-br" new-tab="true">
+                        </befly-widget>
+                        </div>
+                        <script type="text/javascript" src="https://static.onertravel.com/widget/search/production/widget-befly.js">
+                        </script>
+                    </div>
                     <div class="btn btn-primary hero-button col-6 open-modal cta">Fazer uma cotação</div>
+
                 </div>
             </div>
         </section>
@@ -117,6 +131,9 @@
         <section class="related-posts">
             <h2 class="section-title">Postagens relacionadas</h2>
             <div class="posts-grid" id="render-posts">
+                <div class="loading-spinner-container centered">
+                    <div class="loading-spinner"></div>
+                </div>
             </div>
         </section>
 
@@ -172,7 +189,7 @@
             <h2 class="featuring-title">Por que escolher a É pra viajar?</h2>
             <div class="featuring-grid">
                 <div class="feature-card">
-                    <i class="fa-solid fa-rocket"></i>
+                    <i class="fa-solid fa-plane"></i>
                     <h3 class="feature-card-title">Passagens aéreas</h3>
                     <p class="feature-card-text">
                         Oferecemos uma ampla seleção de passagens aéreas para destinos nacionais e internacionais.
@@ -226,7 +243,7 @@
             <div class="footer-section localizacao">
                 <h4>Localização</h4>
                 <p>
-                    1723 Frederico Maurer,<br> Hauer, Curitiba<br> 80100-000
+                    1723 Frederico Maurer,<br> Hauer, Curitiba<br> 81.630-020
                 </p>
             </div>
             <div class="footer-section contato">
