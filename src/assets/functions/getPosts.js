@@ -25,7 +25,6 @@ export async function getPosts() {
         if (allPosts.length != 0) {
             try {
                 allPosts.forEach(post => post.dateObject = new Date(post.dateObject));
-                console.log(allPosts)
                 return allPosts;
             }
             catch (e) {

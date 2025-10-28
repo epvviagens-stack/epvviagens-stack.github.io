@@ -5,17 +5,14 @@
     <title>Post - É pra viajar</title>
     <link rel="icon" type="image/x-icon" href="static/favicon.ico">
 
-    <link rel="stylesheet" href="../static/common/root.css">
-    <link rel="stylesheet" href="../static/common/footer.css">
-    <link rel="stylesheet" href="./post.css">
-    <script defer type="module" src="./post.js"></script>
+    <link rel="stylesheet" href="/static/common/root.css">
+    <link rel="stylesheet" href="/static/common/footer.css">
+    <link rel="stylesheet" href="/post-page/post.css">
+    <script defer type="module" src="/post-page/post.js"></script>
 
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
-    <script defer src="../static/modal/modal.js"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,29 +24,29 @@
 
 
     <!-- Modal -->
-    <link rel="stylesheet" href="./assets/components/modal/modal.css">
-    <script type="module" src="./assets/components/modal/modal.js"></script>
+    <link rel="stylesheet" href="/assets/components/modal/modal.css">
+    <script src="/assets/components/modal/modal.js"></script>
 
     <!-- Floating button -->
-    <link rel="stylesheet" href="./assets/components/floating-button/floating-button.css">
-    <script defer src="./assets/components/floating-button/floating-button.js"></script>
+    <link rel="stylesheet" href="/assets/components/floating-button/floating-button.css">
+    <script defer src="/assets/components/floating-button/floating-button.js"></script>
 </head>
 
 <body>
     <header>
         <div class="container col-12 header">
             <div class="col-6 flex logo-container">
-                <a href="../index.html" class="logo flex header-logo">
-                    <img class="logo-svg" src="../static/logo.svg" alt="EP">
+                <a href="/" class="logo flex header-logo">
+                    <img class="logo-svg" src="/static/logo.svg" alt="EP">
                     <span class="logo-text">É pra viajar</span>
                 </a>
             </div>
             <nav class="col-6 header-nav">
-                <a href="../index.html" class="nav-link">Inicio</a>
+                <a href="/" class="nav-link">Inicio</a>
                 <div class="divider-vertical"></div>
                 
-                <div class="btn btn-secondary open-modal" id="open-modal">Fale conosco</div>
-                <form action="../search-page/search-page.html" method="GET" class="search-container">
+                <div class="btn btn-secondary epv-open-modal" id="epv-open-modal">Fale conosco</div>
+                <form action="/search-page/search-page.html" method="GET" class="search-container">
                     <input type="text" name="q" id="search-input" class="search-input" placeholder="Pesquisar posts..." required>
                     <button type="submit" class="btn-icon" id="search-icon"><i class="fas fa-search"></i></button>
                 </form>
@@ -83,9 +80,9 @@
         </div>
     </footer>
 
-    <div class="modal-overlay" id="modal-overlay">
-        <div class="modal">
-            <button class="close-btn" id="close-modal">&times;</button>
+    <div class="epv-modal-overlay" id="epv-modal-overlay">
+        <div class="epv-modal">
+            <button class="close-btn" id="epv-close-modal">&times;</button>
             <h2>Entre em contato</h2>
             <form id="contact-form" action="https://formsubmit.co/leo_falango@hotmail.com" method="POST">
                 <input type="hidden" name="_subject" value="Novo contato - formulário de viagem">

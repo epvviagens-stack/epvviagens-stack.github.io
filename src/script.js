@@ -26,14 +26,10 @@ setInterval(() => {
     }
 }, 2000);
 
-const contact = document.getElementById("contact")
-contact.addEventListener('input', (e) => maskElement(e));
-
-
 function createCard(row) {
     const article = document.createElement('a');
     article.className = 'post-card';
-    article.href = `./post-page/post.html?title=${encodeURIComponent(row.Titulo)}`;
+    article.href = `/post-page/post.html?title=${encodeURIComponent(row.Titulo)}`;
 
     const img = document.createElement('img');
     img.src = row.Imagem;
@@ -52,7 +48,7 @@ function createCard(row) {
     cardFooter.className = 'card-footer';
 
     const a = document.createElement('a');
-    a.href = `./post-page/post.html?title=${encodeURIComponent(row.Titulo)}`;
+    a.href = `/post-page/post.html?title=${encodeURIComponent(row.Titulo)}`;
     a.className = 'btn btn-primary';
     a.textContent = row.Botao;
     a.setAttribute('aria-label', `Leia mais sobre ${row.Titulo}`);
@@ -91,6 +87,10 @@ document.addEventListener('click', (e) => {
 });
 
 document.addEventListener('DOMContentLoaded', async () => {
+    const contact = document.getElementById("contact")
+    contact.addEventListener('input', (e) => maskElement(e));
+
+    
     searchIcon.addEventListener("click", (e) => { 
         if (!searchInput.classList.contains("active")) {
             e.preventDefault();

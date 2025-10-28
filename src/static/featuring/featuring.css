@@ -1,4 +1,4 @@
-@import "../common/root.css";
+@import "/static/common/root.css";
 .featuring-section {
     display: flex;
     flex-direction: column;
