@@ -1,4 +1,4 @@
-import { getPosts } from "../assets/functions/getPosts.js";
+import { getPosts } from "./assets/functions/getPosts.js";
 
 const header = document.getElementsByClassName("header")[0];
 const searchInput = document.getElementById("search-input"); 

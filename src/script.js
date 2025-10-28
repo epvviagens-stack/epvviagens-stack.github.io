@@ -1,5 +1,5 @@
-import { getPosts } from "./assets/functions/getPosts.js";
-import { maskElement } from "./assets/functions/maskElement.js";
+import { getPosts } from "/assets/functions/getPosts.js";
+import { maskElement } from "/assets/functions/maskElement.js";
 
 const changeText = ["sonhar", "viajar", "viver"];
 const shopLink = "https://www.comprarviagem.com.br/epraviajar/home?utm_medium=email&_hsenc=p2ANqtz-_jTeLmf2_JOt1yc5HxoQb3XlV4-rVYFDqmjoYxkLlg2Z5eKNV5ygXc4C9TKJ1aaDCV3JsPFw_S_yI3tAa3WFpRK-jzrw&_hsmi=111888785&utm_content=111888785&utm_source=hs_automation";
