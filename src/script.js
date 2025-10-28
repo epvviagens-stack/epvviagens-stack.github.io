@@ -26,10 +26,6 @@ setInterval(() => {
     }
 }, 2000);
 
-const contact = document.getElementById("contact")
-contact.addEventListener('input', (e) => maskElement(e));
-
-
 function createCard(row) {
     const article = document.createElement('a');
     article.className = 'post-card';
@@ -91,6 +87,10 @@ document.addEventListener('click', (e) => {
 });
 
 document.addEventListener('DOMContentLoaded', async () => {
+    const contact = document.getElementById("contact")
+    contact.addEventListener('input', (e) => maskElement(e));
+
+    
     searchIcon.addEventListener("click", (e) => { 
         if (!searchInput.classList.contains("active")) {
             e.preventDefault();
