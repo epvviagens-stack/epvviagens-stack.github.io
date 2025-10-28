@@ -12,6 +12,10 @@ permissions:
 
 jobs:
   deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -22,7 +26,6 @@ jobs:
         with:
           path: ./src
 
-      # 3. Faz o upload do site
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
