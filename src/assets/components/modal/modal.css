@@ -1,4 +1,4 @@
-@import url("../../../static/common/root.css");
+@import url("/static/common/root.css");
 .modal-overlay {
     display: none;
     position: fixed;
