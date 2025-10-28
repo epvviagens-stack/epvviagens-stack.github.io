@@ -1,5 +1,5 @@
 <details>
-  <summary><strong>🇬🇧 View in English (Click to expand)</strong></summary>
+  <summary><strong>🇪🇳 View in English (Click to expand)</strong></summary>
   
   # É pra viajar!
   ![É pra viajar! Logo](src/static/logo.png)
