@@ -36,16 +36,19 @@
         <div class="container col-12 header">
             <div class="col-6 flex logo-container">
                 <a href="/" class="logo flex header-logo">
-                    <img class="logo-svg" src="/static/logo.svg" alt="EP">
+                    <img class="logo-svg" src="/static/logo-bg.jpeg" alt="EP">
                     <span class="logo-text">É pra viajar</span>
                 </a>
             </div>
             <nav class="col-6 header-nav">
-                <a href="/" class="nav-link">Inicio</a>
+                <a href="/" class="nav-link active-big-screen">Inicio</a>
+                <a href="/" class="nav-icon fa-solid fa-house active-small-screen"></a>
                 <div class="divider-vertical"></div>
                 
-                <div class="btn btn-secondary epv-open-modal" id="epv-open-modal">Fale conosco</div>
-                
+                <div class="btn btn-secondary epv-open-modal active-big-screen">Fale conosco</div>
+                <div class="nav-icon active-small-screen epv-open-modal">
+                    <i class="fa-solid fa-phone"></i>
+                </div>
             </nav>
         </div>
     </header>

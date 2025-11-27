@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     const TARGETMAIL = 'contato@epravijar.com.br';
 
-    const openModal = document.getElementById("epv-open-modal");
+    const openModal = document.querySelectorAll(".epv-open-modal");
     const closeModal = document.getElementById("epv-close-modal");
     const overlay = document.getElementById("epv-modal-overlay");
     const form = document.getElementById("contact-form");
@@ -10,7 +10,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const submitButton = form.querySelector("button[type='submit']");
     const snackbar = document.getElementById("snackbar");
 
-    openModal.addEventListener("click", () => overlay.style.display = "flex");
+    openModal.forEach(button => {
+        button.addEventListener("click", () => {
+            overlay.style.display = "flex";
+        });
+    });
+
     closeModal.addEventListener("click", () => overlay.style.display = "none");
     overlay.addEventListener("click", (e) => {
         if (e.target === overlay) overlay.style.display = "none";
