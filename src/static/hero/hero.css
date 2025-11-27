@@ -114,7 +114,7 @@
 }
 @media (max-width: 992px) {
     .hero {
-        min-height: calc(100vh - 80px);
+        min-height: 120vh;
     } 
     .hero-subtitle {
         font-size: 2.5rem;
