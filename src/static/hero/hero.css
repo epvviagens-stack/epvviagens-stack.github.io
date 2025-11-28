@@ -1,6 +1,6 @@
 @import url("/static/common/root.css");
 .hero {
-    height: calc(100vh - 80px);
+    height: 110vh;
 }
 
 .hero .btn {
