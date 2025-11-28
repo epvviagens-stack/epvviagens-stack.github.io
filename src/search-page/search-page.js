@@ -29,7 +29,10 @@ function createCard(row) {
     const a = document.createElement('a');
     a.href = `/post-page/post.html?title=${encodeURIComponent(row.Titulo)}`;
     a.className = 'btn btn-primary';
-    a.textContent = row.Botao || 'Leia mais';
+    
+    if (!row.Botao)
+        row.Botao = 'Leia mais';
+    a.textContent = row.Botao != '' ? row.Botao : 'Leia mais';
     a.setAttribute('aria-label', `Leia mais sobre ${row.Titulo}`);
     cardFooter.appendChild(a);
 
