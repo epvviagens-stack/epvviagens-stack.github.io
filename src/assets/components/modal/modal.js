@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const TARGETMAIL = 'contato@epravijar.com.br';
+    const TARGETMAIL = 'contato@epraviajar.com.br';
 
     const openModal = document.querySelectorAll(".epv-open-modal");
     const closeModal = document.getElementById("epv-close-modal");
