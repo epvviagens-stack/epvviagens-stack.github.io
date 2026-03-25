@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <title>Criar Novo Post - É pra viajar</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/static/common/root.css">
+    <link rel="stylesheet" href="/post-page/post.css">
+    <link rel="stylesheet" href="/assets/components/snackbar/snackbar.css">
+    <link rel="stylesheet" href="/assets/components/modal/modal.css">
+    
+    <link rel="stylesheet" href="/create-post/createPost.css">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+    <script src="https://accounts.google.com/gsi/client" defer></script>
+    <script src="https://apis.google.com/js/api.js" defer></script>
+
+    <script defer type="module" src="/create-post/script.js"></script>
+</head>
+
+<body class="creator-body">
+    <header>
+        <div class="container col-12 header">
+            <div class="col-6 flex logo-container">
+                <a href="/" class="logo flex header-logo">
+                    <img class="logo-svg" src="/static/logo-bg.jpeg" alt="EP">
+                    <span class="logo-text">Painel Criador</span>
+                </a>
+            </div>
+            <nav class="col-6 header-nav" style="justify-content: flex-end;">
+                <button class="btn btn-secondary" id="btn-config"><i class="fas fa-cog"></i> API Config</button>
+                <a href="/" class="nav-link active-big-screen">Voltar ao Site</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="creator-layout">
+        <section class="form-section">
+            <div class="form-header">
+                <h2>Escrever Novo Post</h2>
+                <p>Preencha os dados. O preview atualizará em tempo real.</p>
+            </div>
+
+            <form id="post-form" class="creator-form">
+                <div class="input-group">
+                    <label>Título do Post *</label>
+                    <input type="text" id="in-titulo" placeholder="Ex: 5 Motivos para visitar Paris" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Subtítulo (Resumo do Card) *</label>
+                    <textarea id="in-subtitulo" rows="2" placeholder="Um breve resumo para chamar a atenção..." required></textarea>
+                </div>
+
+                <div class="form-row">
+                    <div class="input-group">
+                        <label>Categoria</label>
+                        <input type="text" id="in-categoria" placeholder="Ex: Europa">
+                    </div>
+                    <div class="input-group">
+                        <label>Data *</label>
+                        <input type="text" id="in-data" placeholder="DD/MM/AAAA" required>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label>Tags (Separadas por vírgula)</label>
+                    <input type="text" id="in-tags" placeholder="Ex: Dicas, Europa, Economia">
+                </div>
+
+                <div class="input-group">
+                    <label>Imagem da Capa (Upload ou URL) *</label>
+                    <div class="image-upload-wrapper">
+                        <input type="file" id="in-imagem-file" accept="image/*">
+                        <span class="ou-divisor">OU</span>
+                        <input type="url" id="in-imagem-url" placeholder="Cole o link da imagem">
+                    </div>
+                    <small>Se enviar arquivo, ele será comprimido automaticamente para Base64.</small>
+                    <input type="hidden" id="in-imagem-final">
+                </div>
+
+                <div class="input-group">
+                    <label>Alt da Imagem (Acessibilidade)</label>
+                    <input type="text" id="in-alt" placeholder="Ex: Casal feliz na frente da Torre Eiffel">
+                </div>
+
+                <div class="input-group">
+                    <label>Conteúdo Completo (Parágrafos) *</label>
+                    <textarea id="in-conteudo" rows="8" placeholder="Escreva o artigo. Quebras de linha serão respeitadas." required></textarea>
+                </div>
+
+                <div class="form-row">
+                    <div class="input-group">
+                        <label>Nome do Autor</label>
+                        <input type="text" id="in-autor" value="É pra Viajar">
+                    </div>
+                    <div class="input-group">
+                        <label>WhatsApp Autor</label>
+                        <input type="text" id="in-autor-numero" value="5541987870348">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="input-group">
+                        <label>Texto do Botão do Card</label>
+                        <input type="text" id="in-botao" value="Leia mais">
+                    </div>
+                </div>
+
+                <button type="button" id="btn-publicar" class="btn btn-primary generate-btn">
+                    <i class="fas fa-cloud-upload-alt"></i> Publicar no Google Sheets
+                </button>
+            </form>
+        </section>
+
+        <section class="preview-section">
+            <div class="preview-tabs">
+                <button class="tab-btn active" data-target="preview-card">Preview do Card</button>
+                <button class="tab-btn" data-target="preview-post">Preview da Página</button>
+            </div>
+
+            <div class="preview-container">
+                <div id="preview-card" class="preview-content active">
+                    <div class="preview-mock-grid">
+                        <div class="post-card" style="margin-top: 2rem;">
+                            <img src="/assets/images/fallback/post-image-fallback.jpeg" id="out-card-img" alt="Capa">
+                            <div class="card-content">
+                                <h3 id="out-card-titulo">Título do post</h3>
+                                <p id="out-card-subtitulo">Resumo do post...</p>
+                                <div class="card-footer">
+                                    <span class="btn btn-primary" id="out-card-botao">Leia mais</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="preview-post" class="preview-content">
+                    <div class="post-layout" id="mock-post">
+                        <section class="post-hero" id="out-post-hero" style="--bg-image: url('/assets/images/fallback/post-image-fallback.jpeg')">
+                            <div class="post-hero-content">
+                                <span class="post-category" id="out-post-categoria">Categoria</span>
+                                <h1 class="post-title-hero" id="out-post-titulo">Título do Post</h1>
+                                <p class="post-meta-hero">Por <span id="out-post-autor">É pra Viajar</span> em <span id="out-post-data">00/00/0000</span></p>
+                            </div>
+                        </section>
+
+                        <article class="article-container" style="margin-top: -3rem; padding: 2rem; width: 95%;">
+                            <div class="post-body" id="out-post-conteudo">
+                                <p>O conteúdo do seu artigo aparecerá aqui.</p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="epv-modal-overlay" id="config-modal-overlay">
+        <div class="epv-modal" style="width: 450px;">
+            <button class="close-btn" id="close-config-modal">&times;</button>
+            <h2>Configuração Google Sheets</h2>
+            <p style="font-size: 0.85rem; color: #666; margin-bottom: 1rem;">Estes dados ficam salvos apenas no seu navegador.</p>
+            <form id="config-form">
+                <div>
+                    <label>Google Client ID</label>
+                    <input type="text" id="cfg-client-id" placeholder="Ex: 123456789-abc.apps.googleusercontent.com" required>
+                </div>
+                <div>
+                    <label>Google API Key</label>
+                    <input type="text" id="cfg-api-key" placeholder="Sua API Key do Google Cloud" required>
+                </div>
+                <div>
+                    <label>Spreadsheet ID</label>
+                    <input type="text" id="cfg-sheet-id" value="1TQl3J-z-l1Pwt7f2Cie8Hn7wwWXY_6maDgHfqdQF1w0" required>
+                </div>
+                <button type="submit" style="margin-top: 1rem;" class="btn btn-primary">Salvar Configurações</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="snackbar"></div>
+</body>
+</html>
