@@ -177,7 +177,6 @@ document.addEventListener("DOMContentLoaded", () => {
           if (dataUrl.length > limiteCaracteres) {
             if (quality > 0.3) {
               quality -= 0.1;
-              s;
               compressImage();
             } else if (maxWidth > 300) {
               maxWidth -= 100;
