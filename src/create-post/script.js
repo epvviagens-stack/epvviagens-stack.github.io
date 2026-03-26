@@ -239,8 +239,6 @@ document.addEventListener("DOMContentLoaded", () => {
       document.getElementById("in-botao").value,
       document.getElementById("in-tags").value,
       document.getElementById("in-categoria").value,
-      document.getElementById("in-autor").value,
-      document.getElementById("in-autor-numero").value,
     ];
 
     if (!values[0] || !values[4] || !values[7]) {
