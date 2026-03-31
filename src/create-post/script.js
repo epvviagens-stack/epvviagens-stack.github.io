@@ -97,7 +97,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const conteudo =
       document.getElementById("in-conteudo").value ||
       "O conteúdo do seu artigo aparecerá aqui.";
-    const autor = document.getElementById("in-autor").value || "É pra Viajar";
     const botao = document.getElementById("in-botao").value || "Leia mais";
     const imgFinal =
       document.getElementById("in-imagem-final").value ||
